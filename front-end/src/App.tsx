@@ -23,7 +23,7 @@ import SchoolIcon from '@material-ui/icons/School';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import HomeIcon from '@material-ui/icons/Home';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import InstagramIcon from '@material-ui/icons/Instagram'; 
+import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 
@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => createStyles({
   },
   socialMediaIcon: {
     margin: 20,
+    color: theme.palette.text.secondary,
   },
   gridList: {
     width: '100%',
@@ -73,6 +74,10 @@ const useStyles = makeStyles((theme) => createStyles({
   gridListTileBar:{
     background: "rgba(75,110,115,0.75)",
     textShadow: "1px 1px black",
+    "&:MuiGridListTitleBar-subtitle":{
+    whiteSpace: "normal",
+    color: theme.palette.secondary.main,
+    },
   },
   gridListTitleTile: {
   },
@@ -101,7 +106,7 @@ const useStyles = makeStyles((theme) => createStyles({
     margin: 10,
     color: theme.palette.common.white,
   },
-  
+
 })
 );
 
@@ -109,7 +114,7 @@ function App() {
   const classes = useStyles();
   const theme = useTheme();
   return (
-    
+
     <div className={'App '+classes.root}>
       <CssBaseline />
       <Container component="div" maxWidth="sm" className={classes.pageNarrower}>
@@ -148,7 +153,7 @@ function App() {
 
         <GridListTile key="wordpress_websites" cols={1} className={classes.gridListTile}>
           <img src={'./images/joinedwebsites.jpeg'} alt="image of my wordpress websites"/>
-          <GridListTileBar 
+          <GridListTileBar
           title={'Simple Wordpress Websites'}
           subtitle={'From my pre-webdev days.'}
           className={classes.gridListTileBar}
