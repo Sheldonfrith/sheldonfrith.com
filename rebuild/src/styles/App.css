@@ -1,0 +1,24 @@
+.tabList {
+  border-bottom: 3px solid rgb(247, 127, 0,0.2);
+  padding-left: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.tabListItem {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border: none;
+  border-style: none;
+  outline-style: none;
+}
+
+.tabListActive {
+  background-color: #F77F00;
+  color: white;
+}

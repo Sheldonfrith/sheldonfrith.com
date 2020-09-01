@@ -113,6 +113,12 @@ const useStyles = makeStyles((theme) => createStyles({
 function App() {
   const classes = useStyles();
   const theme = useTheme();
+  const handleClickEBook =(event: object) => {
+    window.open('https://amzn.to/2CvUxhJ');
+  }
+  const handleClickTYPE=(event: object) => {
+    window.open('https://t-y-p-e.com');
+  }
   return (
 
     <div className={'App '+classes.root}>
@@ -129,11 +135,8 @@ function App() {
       </Container>
       <div className={classes.gridListWrapper}>
       <GridList cellHeight={250} className={classes.gridList} cols={3} spacing={4}>
-        {/* <GridListTile key="Subheader" cols={3} style={{height:'auto'}} className={classes.gridListTitleTile}>
-          <ListSubheader component="div" className={classes.gridListTitle}>Projects</ListSubheader>
-        </GridListTile> */}
 
-        <GridListTile key="t-y-p-e_tile" cols={2} className={classes.gridListTile}>
+        <GridListTile key="t-y-p-e_tile" cols={2} className={classes.gridListTile} onClick={handleClickTYPE}>
           <img src={'./images/t-y-p-e_code.png'} alt={'t-y-p-e.com'}/>
           <GridListTileBar
             title={'T-Y-P-E'}
@@ -142,7 +145,7 @@ function App() {
             />
         </GridListTile>
 
-        <GridListTile key="ebook_tile" cols={1} className={classes.gridListTile}>
+        <GridListTile key="ebook_tile" cols={1} className={classes.gridListTile} onClick={handleClickEBook}>
           <img src={'./images/ltavn.png'} alt="letter to a vegetarian nation ebook"/>
           <GridListTileBar
             title={'Letter To A Vegetarian Nation'}
