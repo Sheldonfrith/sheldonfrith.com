@@ -10,9 +10,9 @@ export default function ContactInfo(props) {
     <div className="contactInfo">
         <p>Email: sheldonfrith@hotmail.com</p>
         <p>Phone: 1 289 527 two six six one</p>
-        <a href="https://www.linkedin.com/in/sheldon-frith-33547878/">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/sheldon-frith-33547878/"><button>LinkedIn Profile</button></a>
         <br/>
-        <a href="https://github.com/Sheldonfrith">GitHub</a>
+        <a href="https://github.com/Sheldonfrith"><button>GitHub Profile</button></a>
     </div>
     );
 

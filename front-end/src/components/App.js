@@ -5,11 +5,16 @@ import ContactInfo from './ContactInfo';
 import Resume from './Resume';
 import TabArea from './TabArea';
 import Portfolio from './Portfolio';
+import GlobalProvider from './providers/GlobalContext';
+import Sidebar from './Sidebar';
 
 function App() {
   return (
+    <GlobalProvider>
     <div className="app">
       <Header/>
+      <div className="body">
+      <Sidebar/>
       <TabArea>
         <div label="Portfolio">
           <Portfolio/>
@@ -21,7 +26,9 @@ function App() {
           <ContactInfo/>
         </div>
       </TabArea>
+      </div>
     </div>
+    </GlobalProvider>
   );
 }
 
