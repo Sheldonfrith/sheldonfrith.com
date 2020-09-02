@@ -14,7 +14,7 @@ function App() {
         <div label="Portfolio">
           <Portfolio/>
         </div>
-        <div label="My Resume">
+        <div label="My CV">
           <Resume/>
         </div>
         <div label="Contact Me">
