@@ -8,7 +8,7 @@ import Portfolio from './Portfolio';
 
 function App() {
   return (
-    <div className="appContainer">
+    <div className="app">
       <Header/>
       <TabArea>
         <div label="Portfolio">

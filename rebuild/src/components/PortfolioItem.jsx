@@ -1,18 +1,30 @@
 import React, {useState, useEffect, useContext} from 'react';
+import {getHomeURL} from '../lib/Utils';
 
 export default function PortfolioItem({
     title, status, summary, image, link, github
 }) {
 
+const gitHubLink = () => {
+    if (github){
+        return <a href={github}><button>View on Github</button></a>;
+    }
+    return;
+}
+const imageGetter = () => {
+    if (image) {
+        return image;
+    }
+    return '/images/coming-soon.jpg';
+}
 return (
-<div className="portfolioItem">
+<a href={link}><div className="portfolioItem" style={{backgroundImage:`url(${imageGetter()})`}}>
     <h3>{title}</h3>
-
-    <a href={link}>
-        <h4>{status}</h4>
+        <h4>Status: {status}</h4>
         <p>{summary}</p> 
-    </a>
-    <a href={github}><button>View on GitHub</button></a>
-</div>
+    <nav>
+    {gitHubLink()}
+    </nav>
+</div></a>
 );
 }

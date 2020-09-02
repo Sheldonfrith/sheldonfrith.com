@@ -1,8 +1,77 @@
+button {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: white;
+  border-style: double;
+  border-color: white;
+  border-width: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 80%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  max-width: 95%;
+  font-size: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Courier New', Courier, monospace;
+}
+.app img {
+  width: 100%;
+  height: auto;
+}
+
+.header {
+  width: 15rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin: 0 2rem;
+}
+.title {
+  height: 2rem;
+  font-size: 50%;
+  margin: 0;
+  border-style: solid;
+  border-width: 0 0 0.2rem 0;
+}
+.title h1 {
+  margin: 0;
+}
+.headerDescription {
+
+}
+.profilePhoto {
+  border-radius: 100%;
+}
+
+.tabArea {
+  margin: 2rem 0 0 0;
+  border-style: solid;
+  border-width: 0 0 0 1rem;
+  width: 100%;
+}
+
+.tabArea img {
+  max-height: 10rem;
+  overflow: visible;
+  object-fit: cover;
+}
+
 .tabList {
-  border-bottom: 3px solid rgb(247, 127, 0,0.2);
+  border-bottom: 3px solid rgb(0, 0, 0,0.2);
+  display: flex;
+  justify-content: space-around;
   padding-left: 0;
   cursor: pointer;
   margin: 0;
+  height: 2rem;
 }
 
 .tabListItem {
@@ -10,7 +79,6 @@
   list-style: none;
   margin-bottom: -1px;
   padding: 0.5rem 0.75rem;
-  border-radius: 5px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border: none;
@@ -19,6 +87,12 @@
 }
 
 .tabListActive {
-  background-color: #F77F00;
+  background-color:black;
   color: white;
+}
+
+.portfolioItem {
+  padding: 10rem 0 0 0 ;
+  border-style: solid;
+  background: linear-gradient(0deg, rgba(0,0,0,0.5));
 }

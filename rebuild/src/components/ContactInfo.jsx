@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useContext} from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
 
 
 export default function ContactInfo(props) {
@@ -9,14 +8,11 @@ export default function ContactInfo(props) {
       }
     return (
     <div className="contactInfo">
-        <p>Email: s h e l d o n f r i t h [ a t ] h o t m a i l . [c o m ]</p>
-        <p>Phone:</p>
-        <p>LinkedIn</p>
-        <p>GitHub</p>
-        <ReCAPTCHA
-    sitekey="AIzaSyAapzlAPqM2raZeI3fp7Gy7BllhYEy2OkM"
-    onChange={onChange}
-  />
+        <p>Email: sheldonfrith@hotmail.com</p>
+        <p>Phone: 1 289 527 two six six one</p>
+        <a href="https://www.linkedin.com/in/sheldon-frith-33547878/">LinkedIn</a>
+        <br/>
+        <a href="https://github.com/Sheldonfrith">GitHub</a>
     </div>
     );
 

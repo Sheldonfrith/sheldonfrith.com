@@ -5,9 +5,9 @@ export default function PortfolioItems() {
             title: 'T-Y-P-E Demo',
             status: 'Demo',
             summary: 'Simple demo of a hardcore typing speed trainer made for programmers. Built from scratch using React.',
-            image: '',
+            image: '/images/t-y-p-e-demo.png',
             link: 'https://t-y-p-e.com',
-            github: '',
+            github: 'https://github.com/Sheldonfrith/t-y-p-e-demo',
         },
         '002': {
             title: 'Simple Secured API Example',
@@ -21,7 +21,7 @@ export default function PortfolioItems() {
             title: 'AR Service Dashboard and Backend',
             status: 'Coming Soon',
             summary: 'Cannot reveal too much information about this yet. I will be working with an AR startup to develop a client dashboard, analytics, and basic backend architecture.',
-            image: '',
+            image: '/images/modelviewer.png',
             link: '',
             github: '',
         },
@@ -45,9 +45,9 @@ export default function PortfolioItems() {
             title: 'The Place For Me - API',
             status: 'Coming Eventually',
             summary: 'An API designed to tell you where in the world you should live, based on a detailed questionaire taking into account a large number of factors. Building the database for this one will take me a while.',
-            image: '',
+            image: '/images/earth.jpg',
             link: 'https://theplacefor.me',
-            github: '',
+            github: 'https://github.com/Sheldonfrith/whereshouldilive',
         },
     }
 

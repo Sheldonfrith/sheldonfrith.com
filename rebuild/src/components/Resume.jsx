@@ -5,19 +5,11 @@ export default function Reume(props) {
 return (
 <div className="resume">
 <div style={{width: '80%', margin: 'auto'}}>
-  <div style={{display: 'flex', justifyContent: 'space-between', borderWidth: '0.3vmin 0', borderStyle: 'solid'}}>
-    <h1 style={{textAlign: 'center'}}>Sheldon Frith</h1>
-    <div style={{textAlign: 'right'}}>
-      <p> sheldonfrith@hotmail.com <br /> 289-527-2661</p>
-    </div>
-  </div>
   <i>
     <p>I am a 27 year-old self-taught programmer. I have
       been programming for years, but only recently decided to pursue it seriously as a career.</p>
   </i>
-  <h2 style={{textAlign: 'center'}}>Dev Portfolio @ <a href="http://sheldonfrith.com">sheldonfrith.com</a></h2>
-  <p><em>I specialize in full-stack web development (Javascript, React, Node.js, Express.js) but I have previous
-      experience with Java, Python, Visual Basic, and Wordpress.</em></p>
+  <button>Download My CV</button>
   <a href="#WorkExperience">Jump to Work History...</a>
   <h2 style={{textAlign: 'center'}}>Soft-Skills</h2>
   <h4>Self-motivated and hard-working</h4>

@@ -21,6 +21,7 @@ export default function TabArea({children}){
                 );
             })}
             </ol>
+            
             <div className="tabContent">
             {children.map((child) => {
                 if (child.props.label !== activeTab) return undefined;
