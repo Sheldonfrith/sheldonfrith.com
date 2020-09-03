@@ -89,7 +89,7 @@ export default function Reume(props) {
                 </li>
                 <li>Successful blog, pulling in regular affiliate cheques years after I finished writing it (currently
           offline, was at <a href="http://regenerateland.com">regenerateland.com</a>)</li>
-                <li>Created and still host several basic worpress websites (<a href="http://b-cranch.ca">b-cranch.ca</a>, <a href="http://holisticmanagement.ca">holisticmanagement.ca</a>, <a href="http://fazendameats.com">fazendameats.com</a>, <a href="http://nftinwt.com">nftinwt.com</a>,
+                <li>Created and still host several basic wordpress websites (<a href="http://b-cranch.ca">b-cranch.ca</a>, <a href="http://holisticmanagement.ca">holisticmanagement.ca</a>, <a href="http://fazendameats.com">fazendameats.com</a>, <a href="http://nftinwt.com">nftinwt.com</a>,
           etc.)</li>
               </ul>
             </div>
