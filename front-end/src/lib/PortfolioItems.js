@@ -11,11 +11,11 @@ export default function PortfolioItems() {
         },
         '002': {
             title: 'Simple Secured API Example',
-            status: 'Coming Soon',
+            status: 'Functional',
             summary: 'Simple backend with secure endpoints requiring login to access. Demo of functionality. Components built from scratch with React, backend built using Node>Express>Loopback 4>Passport, hosted on AWS EC2 instance.',
             image: '',
-            link: '',
-            github: '',
+            link: 'http://18.188.240.246/',
+            github: 'https://github.com/Sheldonfrith/SimpleAuthDemo',
         },
         '003': {
             title: 'AR Service Dashboard and Backend',
