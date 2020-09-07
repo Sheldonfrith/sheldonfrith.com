@@ -4,7 +4,7 @@ import {getHomeURL} from '../lib/Utils';
 let prevHoverState = null;
 
 export default function PortfolioItem({
-    title, status, summary, image, link, github
+    title, status, summary, image, showImage, link, github
 }) {
 
 image = image?image:'/images/coming-soon.jpg';
@@ -18,8 +18,9 @@ const [isHovered, setIsHovered] = useState(false);
 const [background, setBackground] = useState({backgroundColor:'white'});
 const [opacity, setOpacity] = useState('1');
 
+//Visual changes whenever this component is hovered
 useEffect (()=>{
-    if (status !== ('Demo' || 'Finished')) return;
+    if (!showImage) return;
     if (isHovered===prevHoverState) return;
     if (isHovered) {
         prevHoverState=true;

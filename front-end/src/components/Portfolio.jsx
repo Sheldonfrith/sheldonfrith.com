@@ -12,12 +12,7 @@ return (
         return (
         <PortfolioItem 
         key={'portfolioItem'+index}
-        title={item.title}
-        status={item.status}
-        summary={item.summary}
-        image={item.image}
-        link={item.link}
-        github={item.github}
+        {...item}
         />
         );
     })}
