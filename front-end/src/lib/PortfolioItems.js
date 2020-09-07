@@ -13,7 +13,7 @@ export default function PortfolioItems() {
             title: 'Simple Secured API Example',
             status: 'Functional',
             summary: 'Simple backend with secure endpoints requiring login to access. Demo of functionality. Built using Node>Express>Loopback 4>Passport, hosted on AWS EC2 instance. UI is SSR using pug/jade hosted on the same server as the backend.',
-            image: '',
+            image: '/images/simple-auth-demo.png',
             link: 'https://simple-auth-demo.sheldonfrith.com/',
             github: 'https://github.com/Sheldonfrith/SimpleAuthDemo',
         },
