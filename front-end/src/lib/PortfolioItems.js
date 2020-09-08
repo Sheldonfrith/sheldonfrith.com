@@ -12,12 +12,21 @@ export default function PortfolioItems() {
         },
         '002': {
             title: 'Simple Secured API Example',
-            status: 'Functional',
+            status: 'Demo',
             summary: 'Simple backend with secure endpoints requiring login to access. Demo of functionality. Built using Node>Express>Loopback 4>Passport, hosted on AWS EC2 instance. UI is SSR using pug/jade hosted on the same server as the backend.',
             image: '/images/simple-auth-demo.png',
             showImage: true,
             link: 'https://simple-auth-demo.sheldonfrith.com/',
             github: 'https://github.com/Sheldonfrith/SimpleAuthDemo',
+        },
+        '005': {
+            title: 'Simple Android Calculator App',
+            status: 'Demo',
+            summary: 'A simple test app to work out the kinks of developing native mobile apps. Larger projects planned for the future.',
+            image: '/images/mobile-calculator.png',
+            showImage: true,
+            link: 'https://simple-mobile-calculator.sheldonfrith.com',
+            github: 'https://github.com/Sheldonfrith/simple-mobile-calculator',
         },
         '003': {
             title: 'AR Service Dashboard and Backend',
@@ -36,15 +45,6 @@ export default function PortfolioItems() {
             showImage: false,
             link: 'https://t-y-p-e.com',
             github: '',
-        },
-        '005': {
-            title: 'Simple Android Calculator App',
-            status: 'Coming Eventually',
-            summary: 'A simple test app to work out the kinks of developing native mobile apps. Larger projects planned for the future.',
-            image: '/images/mobile-calculator.png',
-            showImage: true,
-            link: 'https://simple-mobile-calculator.sheldonfrith.com',
-            github: 'https://github.com/Sheldonfrith/simple-mobile-calculator',
         },
         '006': {
             title: 'The Place For Me - API',
