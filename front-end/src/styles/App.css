@@ -1,4 +1,15 @@
 /* Global */
+/* animations */
+@keyframes test {
+  from {
+    max-width: 0%;
+    max-height: 0%;
+  }
+  to {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
 
 button {
   font-family: 'Courier New', Courier, monospace;
@@ -20,9 +31,7 @@ a {
 }
 
 .app {
-  
   font-size: 20px;
-  
   font-family: 'Courier New', Courier, monospace;
 }
 .app img {
@@ -94,7 +103,6 @@ a {
   margin: 0 2rem;
 }
 .sidebarDescription {
-
 }
 .profilePhoto {
   border-radius: 100%;
@@ -117,6 +125,9 @@ a {
   flex-direction: column;
   justify-content: space-between;
 }
+
+
+
 .portfolioItem {
   margin: 1rem 0 ;
   border-style: solid;
