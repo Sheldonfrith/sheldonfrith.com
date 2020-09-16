@@ -40,11 +40,20 @@ export default function PortfolioItems() {
         'sharp-ar': {
             title: 'AR Service Dashboard and Backend',
             status: 'Coming Soon',
-            summary: 'Cannot reveal too much information about this yet. I will be working with an AR startup to develop a client dashboard, analytics, and basic backend architecture.',
+            summary: 'Currently working with an AR startup to develop a client dashboard, analytics, and basic backend architecture/security.',
             image: '/images/modelviewer.png',
             showImage: true,
             link: '',
             github: '',
+        },
+        'the-place-for-me': {
+            title: 'The Place For Me - API',
+            status: 'Coming Soon',
+            summary: 'An API designed to tell you where in the world you should live, based on a detailed questionaire taking into account a large number of factors. Currently populating the database with country data.',
+            image: '/images/earth.jpg',
+            showImage: false,
+            link: 'https://theplacefor.me',
+            github: 'https://github.com/Sheldonfrith/whereshouldilive',
         },
         't-y-p-e': {
             title: 'Full T-Y-P-E Web App',
@@ -54,15 +63,6 @@ export default function PortfolioItems() {
             showImage: false,
             link: 'https://t-y-p-e.com',
             github: '',
-        },
-        'the-place-for-me': {
-            title: 'The Place For Me - API',
-            status: 'Coming Eventually',
-            summary: 'An API designed to tell you where in the world you should live, based on a detailed questionaire taking into account a large number of factors. Building the database for this one will take me a while.',
-            image: '/images/earth.jpg',
-            showImage: false,
-            link: 'https://theplacefor.me',
-            github: 'https://github.com/Sheldonfrith/whereshouldilive',
         },
     }
 
