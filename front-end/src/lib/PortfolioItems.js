@@ -10,6 +10,15 @@ export default function PortfolioItems() {
             link: 'https://t-y-p-e.com',
             github: 'https://github.com/Sheldonfrith/t-y-p-e-demo',
         },
+        'the-place-for-me': {
+            title: 'The Place For Me - API and PWA',
+            status: 'Under Construction',
+            summary: 'Web app designed to tell you where you should live based on a detailed questionaire taking into account a large number of global datasets. Currently populating the database with country data, but you can still currently test out the basic functionality.',
+            image: '/images/World-Countries.jpg',
+            showImage: true,
+            link: 'https://theplacefor.me',
+            github: 'https://github.com/Sheldonfrith/whereshouldilive',
+        },
         'simple-auth-demo': {
             title: 'Simple Secured API Example',
             status: 'Demo',
@@ -45,15 +54,6 @@ export default function PortfolioItems() {
             showImage: true,
             link: '',
             github: '',
-        },
-        'the-place-for-me': {
-            title: 'The Place For Me - API',
-            status: 'Coming Soon',
-            summary: 'An API designed to tell you where in the world you should live, based on a detailed questionaire taking into account a large number of factors. Currently populating the database with country data.',
-            image: '/images/earth.jpg',
-            showImage: false,
-            link: 'https://theplacefor.me',
-            github: 'https://github.com/Sheldonfrith/whereshouldilive',
         },
         't-y-p-e': {
             title: 'Full T-Y-P-E Web App',
