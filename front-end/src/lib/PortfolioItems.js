@@ -10,6 +10,15 @@ export default function PortfolioItems() {
             link: 'https://t-y-p-e.com',
             github: 'https://github.com/Sheldonfrith/t-y-p-e-demo',
         },
+        'sharp-ar': {
+            title: 'AR Service Dashboard and Backend',
+            status: 'Production',
+            summary: 'Just finished a project for an Augmented Reality startup to develop a client dashboard, analytics, and basic backend architecture/security. The code is private and cant be shared, but a video tour of the project will be coming soon.',
+            image: '/images/modelviewer.png',
+            showImage: true,
+            link: '',
+            github: '',
+        },
         'the-place-for-me': {
             title: 'The Place For Me - API and PWA',
             status: 'Under Construction',
@@ -44,15 +53,6 @@ export default function PortfolioItems() {
             image: '/images/fazendameats.png',
             showImage: true,
             link: 'http://fazendameats.com',
-            github: '',
-        },
-        'sharp-ar': {
-            title: 'AR Service Dashboard and Backend',
-            status: 'Coming Soon',
-            summary: 'Currently working with an AR startup to develop a client dashboard, analytics, and basic backend architecture/security.',
-            image: '/images/modelviewer.png',
-            showImage: true,
-            link: '',
             github: '',
         },
         't-y-p-e': {
