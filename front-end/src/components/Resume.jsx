@@ -82,6 +82,7 @@ export default function Reume(props) {
               <div>
                 <h3>Freelance Web Developer</h3>
                 <p style={{ margin: 0 }}>Full Stack Web Development</p>
+                <p style={{margin:0}}>Sharp AR (contact for reference)</p>
               </div>
               <p style={{ fontSize: "100%" }}>September 2020 - Present</p>
             </div>

@@ -13,7 +13,7 @@ export default function PortfolioItems() {
         'sharp-ar': {
             title: 'AR Service Dashboard and Backend',
             status: 'Production',
-            summary: 'Just finished a project for an Augmented Reality startup to develop a client dashboard, analytics, and basic backend architecture/security. The code is private and cant be shared, but a video tour of the project will be coming soon.',
+            summary: 'Just finished a project for an Augmented Reality startup to develop a client dashboard, analytics, and basic backend architecture/security. Reference available upon request.',
             image: '/images/modelviewer.png',
             showImage: true,
             link: '',
