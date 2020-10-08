@@ -1,36 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import Accordian from "./Accordian";
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 1rem;
+`;
+
 
 export default function Reume(props) {
   return (
-    <div className="resume">
-      <div>
-        <i>
-          <p>
-            I am a 27 year-old self-taught programmer. I have been programming
-            for years, but only recently decided to pursue it seriously as a
-            career.
-          </p>
-        </i>
-        <div></div>
+      <Container>
         <Accordian>
-          <div className="downloadCV" label="Download My CV" style={{}}>
-            <div>
-              <a href="/SheldonFrithResume.docx">
-                <button>Download As Word File</button>
-              </a>
-            </div>
-            <div>
-              <a href="/SheldonFrithResume.pdf">
-                <button>Download As PDF</button>
-              </a>
-            </div>
-            <div>
-              <a href="/SheldonFrithResume.html">
-                <button>Download As HTML</button>
-              </a>
-            </div>
-          </div>
           <div className="softSkills" label="Soft Skills">
             <h4>Self-motivated and hard-working</h4>
             <p>
@@ -282,7 +262,6 @@ export default function Reume(props) {
             </h2>
           </div>
         </Accordian>
-      </div>
-    </div>
+        </Container>
   );
 }

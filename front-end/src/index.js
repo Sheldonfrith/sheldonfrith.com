@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "react-alice-carousel/lib/alice-carousel.css";
 import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import GlobalProvider from './components/providers/GlobalContext'
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalProvider>
     <App />
+    </GlobalProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

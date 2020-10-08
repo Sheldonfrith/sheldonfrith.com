@@ -1,6 +1,6 @@
-/* Global */
+/* Global
 /* animations */
-@keyframes test {
+/*@keyframes test {
   from {
     max-width: 0%;
     max-height: 0%;
@@ -38,7 +38,7 @@ a {
   width: 100%;
   height: auto;
 }
-/* Header */
+
 .header {
   background-color: white;
   width: 100%;
@@ -86,7 +86,6 @@ a {
 }
 
 
-/* Body */
 .body {
   max-width: 95%;
   margin: 4rem auto 0 auto;
@@ -95,7 +94,7 @@ a {
   justify-content: space-between;
 }
 
-/* Sidebar */
+
 .sidebar {
   width: 15rem;
   flex-shrink: 0;
@@ -107,7 +106,7 @@ a {
 .profilePhoto {
   border-radius: 100%;
 }
-/* TabArea Content */
+
 .tabArea {
   border-style: solid;
   border-width: 0 0 0 0.2rem;
@@ -166,4 +165,4 @@ a {
   .header {
     font-size: 80%;
   }
-}
+} */
