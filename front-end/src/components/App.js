@@ -73,7 +73,7 @@ const SubArea = styled.div`
     align-items: flex-start;
   }
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: ${(props) => props.theme.black};
   width: 100%;
   flex: auto;
@@ -94,17 +94,19 @@ const SubButtons = styled.div`
   flex-direction: row;
   align-content: center;
   justify-content: space-between;
-  width: 60%;
   @media (max-width: ${(props) => props.theme.primaryBreakpoint}px) {
     width: 100%;
     margin: 0 0 1rem 0;
   }
 `;
 const AboutArea = styled.div`
-  height: 20rem;
   width: 100%;
   margin: 5rem auto 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 `;
 const ResumePopupContainer = styled.div`
   display: ${props=>props.display};
@@ -112,20 +114,22 @@ const ResumePopupContainer = styled.div`
   z-index: 11;
   position: absolute;
   left: 6%;
+  top: 18%;
 `;
 const AboutBackgroundTransition = styled.img`
   height: 60vh;
   width: 101vw;
   right: 0;
   position: absolute;
-  top: 20vh;
+  top: 90%;
   @media (max-width: ${props=>props.theme.primaryBreakpoint}px){
     top:90%;
   }
 `;
 const AboutTitle = styled.h4`
   color: ${(props) => props.theme.white};
-  font-size: 1rem;
+  font-size: 2rem;
+  margin: 1.5rem;
 `;
 const AboutImgDiv = styled.div`
   border-radius: 50%;
@@ -135,6 +139,9 @@ const AboutImgDiv = styled.div`
   right: 6%;
   z-index: 10;
   top: -15%;
+  @media (max-width: ${props=>props.theme.primaryBreakpoint}px){
+    top:5%;
+  }
 `;
 const AboutImg = styled.img`
   border-radius: 50%;
@@ -162,14 +169,15 @@ const AboutTextArea = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.theme.orange};
-  position: absolute;
-  top: 20%;
-  right: 22%;
+  margin: 6rem 8rem 3rem 4rem;
+  @media (max-width: ${props=>props.theme.primaryBreakpoint}px){
+    margin: 6rem 8rem 3rem 2rem;
+  }
 `;
 const AboutDescription = styled.p`
   color: ${(props) => props.theme.white};
   margin: 0 2rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
 `;
 const AboutButton = styled.button`
   background-color: ${(props) => props.theme.orange};
@@ -177,9 +185,10 @@ const AboutButton = styled.button`
   border-color: ${(props) => props.theme.white};
   border-style: solid;
   border-width: 0.1rem;
-  font-size: 1rem;
-  margin: 1rem 0 0 0;
+  font-size: 1.5rem;
+  margin: 1.5rem;
   cursor: pointer;
+  padding: 0.4rem 1rem;
 `;
 const AboutAnimation = styled.img``;
 const ToolkitArea = styled.div`
