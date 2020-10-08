@@ -86,7 +86,6 @@ const Subtitle = styled.h2`
   width: 30%;
   margin: 0.6rem 1rem;
   @media (max-width: ${(props) => props.theme.primaryBreakpoint}px) {
-    width: 100%;
     margin: 0 0 0 1.5rem;
   }
 `;
@@ -121,7 +120,7 @@ const AboutBackgroundTransition = styled.img`
   position: absolute;
   top: 20vh;
   @media (max-width: ${props=>props.theme.primaryBreakpoint}px){
-    top:30vh;
+    top:90%;
   }
 `;
 const AboutTitle = styled.h4`
