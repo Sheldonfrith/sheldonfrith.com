@@ -61,7 +61,7 @@ const Background = styled.div`
   background-size: cover;
   backrgound-repeat: no-repeat;
   background-image: url(${(props) => props.theme.headerPic});
-  height: 73vh;
+  height: 100vh;
   width: 100%;
   flex: auto;
 `;
