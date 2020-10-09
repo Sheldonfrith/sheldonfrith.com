@@ -4,11 +4,11 @@ import PortfolioItem from './PortfolioItem';
 import HorizontalGallery from './reusable/HorizontalGallery';
 import styled from 'styled-components'
 
-export default function Portfolio(props) {
-const [portfolioItems, setPortfolioItems] = useState(PortfolioItems());
 const PortfolioContainer = styled.div`
     max-width: 100%;
 `
+export default function Portfolio(props) {
+const [portfolioItems, setPortfolioItems] = useState(PortfolioItems());
 return (
 <PortfolioContainer>
     <HorizontalGallery>
