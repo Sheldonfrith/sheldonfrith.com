@@ -7,10 +7,13 @@ import React, {
 } from "react";
 import AliceCarousel from "react-alice-carousel";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
+import useMyEffect from '../../lib/Hooks/useMyEffect';
 
-export default function HorizontalGallery({ id, children, autoPlay }) {
-  const handleOnDragStart = (e) => e.preventDefault();
+export default function HorizontalGallery({ id, children, autoPlay, startIndex}) {
+  // console.log('rerendered horizontal gallery');
+  const handleOnDragStart = useCallback((e) => e.preventDefault(),[]);
   let carousel = useRef(null);
+  
   return (
     <div
       style={{
@@ -40,6 +43,7 @@ export default function HorizontalGallery({ id, children, autoPlay }) {
           autoPlayInterval={2000}
           disableAutoPlayOnAction
           stopAutoPlayOnHover
+          startIndex={startIndex}
           preservePosition
           responsive={{ 0: { items: 1 }, 500: { items: 2 }, 800: { items: 3 } }}
           ref={(el) => (carousel = el)}

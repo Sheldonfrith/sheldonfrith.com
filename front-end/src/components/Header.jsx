@@ -23,9 +23,12 @@ const Background = styled.div`
   background-size: cover;
   backrgound-repeat: no-repeat;
   background-image: url(${(props) => props.theme.headerPic});
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   flex: auto;
+  @media (max-width: ${props=>props.theme.primaryBreakpoint}px){
+    height: 70vh;
+  }
 `;
 const SubArea = styled.div`
   display: flex;
@@ -33,6 +36,7 @@ const SubArea = styled.div`
   @media (max-width: ${(props) => props.theme.primaryBreakpoint}px) {
     flex-direction: column;
     align-items: flex-start;
+    height: 30vh;
   }
   align-items: center;
   justify-content: space-between;
@@ -41,6 +45,7 @@ const SubArea = styled.div`
   flex: auto;
   flex-wrap: wrap;
   position: relative;
+  height: 20vh;
 `;
 const Subtitle = styled.h2`
   color: ${(props) => props.theme.orange};

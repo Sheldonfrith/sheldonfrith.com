@@ -41,7 +41,8 @@ const PortfolioItemTag = styled.div`
   padding: 0.2rem 0.6rem;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 1%;
+  max-width: 90%;
   font-size: 0.8rem;
 `;
 const PortfolioItemTitle = styled.h4`
@@ -51,30 +52,55 @@ const PortfolioItemTitle = styled.h4`
   margin: 0 1rem 0 1rem;
 `;
 
+const mouseMoveThreshold = 40;//px
+let initialX = null;
+let initialY = null;
 
 export default function RecentProjects({theme}) {
     const globalContext = useContext(GlobalContext);
 
   const portfolioItems = globalContext.portfolioItems;
 
-    const [currentItem, setCurrentItem] = useMyState(null,'object');
+  const [currentItem, setCurrentItem] = useMyState(null,'object');
   const [portfolioPopupDisplay, setPortfolioPopupDisplay] = useMyState('none','string');
   const [autoPlayGallery, setAutoPlayGallery] = useMyState(true,'boolean');
+  const [lastClickedIndex, setLastClickedIndex]= useMyState(null, 'number');
+  
+  const handleMouseDown =(e)=>{
+    initialX = e.clientX;
+    initialY = e.clientY;
+  }
     
-  const handlePortfolioItemClick=(e)=>{
+  const handleMouseUp =(e,index)=>{
+    //detect if should open popup or not
+    //if it was NOT a drag event (determined by mouseMoveThreshold) then fire the popup
+    const currX = e.clientX;
+    const currY = e.clientY;
+    const xChange = Math.abs(initialX-currX);
+    const yChange = Math.abs(initialY-currY);
+    // console.log(xChange, yChange, mouseMoveThreshold)
+    if (xChange<mouseMoveThreshold && yChange<mouseMoveThreshold){
+      openPopup(e,index);
+    } 
+    //reset the click variables
+      initialX = null;
+      initialY = null;
+  }
+  const openPopup=(e, index)=>{
+    //ONLY FIRE IF MOUSE WAS NOT HELD DOWN OR DRAGGED
+    //check the duration
+    
     const itemID = e.target.id;
     //stop gallery autoplay
     setAutoPlayGallery(false);
+    //record the index so it can be reset
+    setLastClickedIndex(index);
     //set popup display variables
     console.log('detected click on ',e.target);
     setCurrentItem({...portfolioItems[itemID]});
-  }
-  //this displays the popup whenever current item changes (only changes on click)
-  useMyEffect([currentItem],()=>{
-    if (!currentItem) return;
-    console.log(currentItem)
     setPortfolioPopupDisplay('block');
-  },[setPortfolioPopupDisplay,currentItem]);
+  }
+  
   //close porfolio popup on click outside
   const portfolioPopupRef = useRef(null);
   useOnClickOutside(portfolioPopupRef,()=>{
@@ -108,12 +134,18 @@ return (
                 description={currentItem.summary}
                 githubLink={currentItem.github || null}
                 directLink={currentItem.link || null}
+                techStackList={currentItem.techStack || null}
               />:<div>...Loading</div>}
             </LargePopup>
-            <Gallery autoPlay={autoPlayGallery}>
+            <Gallery autoPlay={autoPlayGallery} startIndex={lastClickedIndex}>
               {Object.keys(portfolioItems).map((itemID, index) => {
                 return (
-                  <PortfolioItem id={itemID} key={"portfolioItem" + index} onClick={handlePortfolioItemClick}>
+                  <PortfolioItem 
+                  id={itemID} 
+                  key={"portfolioItem" + index} 
+                  onMouseDown={handleMouseDown}
+                  onMouseUp={(e)=>handleMouseUp(e,index)}
+                  >
                     <PortfolioItemIcon
                       id={itemID}
                       src={portfolioItems[itemID].icon}

@@ -10,7 +10,7 @@ export default function PortfolioItems() {
             link: 'https://t-y-p-e.com',
             github: 'https://github.com/Sheldonfrith/t-y-p-e-demo',
             icon: '/images/t-y-p-e-icon.svg',
-            techStack: ['React','CSS','Netlify','Material-UI'],
+            techStack: ['React','CSS','Netlify'],
         },
         'sharp-ar': {
             title: 'Sharp Augmented Reality',
@@ -21,7 +21,7 @@ export default function PortfolioItems() {
             link: '',
             github: '',
             icon: '/images/a-r-icon.svg',
-            techStack: ['React','Javascript','Firebase','Serverless Functions','Express','Realtime Database']
+            techStack: ['React','Javascript','Firebase','Express']
         },
         'the-place-for-me': {
             title: 'The Place For Me',
@@ -32,7 +32,7 @@ export default function PortfolioItems() {
             link: 'https://theplacefor.me',
             github: 'https://github.com/Sheldonfrith/whereshouldilive',
             icon: '/images/world-icon.svg',
-            techStack: ['React','Express','Netlify','Serverless Functions','AWS EC2','Realtime Database', 'Bootstrap']
+            techStack: ['React','Express','Netlify','AWS', 'Bootstrap']
         },
         'simple-auth-demo': {
             title: 'Simple Authorization',
@@ -43,7 +43,7 @@ export default function PortfolioItems() {
             link: 'https://simple-auth-demo.sheldonfrith.com/',
             github: 'https://github.com/Sheldonfrith/SimpleAuthDemo',
             icon: '/images/security-icon.svg',
-            techStack: ['React','Bootstrap', 'Express', 'Passport','AWS EC2', 'AWS RDS'],
+            techStack: ['React','Bootstrap', 'Express','AWS'],
         },
         'simple-mobile-calculator': {
             title: 'Simple Mobile Calculator',
@@ -54,7 +54,7 @@ export default function PortfolioItems() {
             link: 'https://simple-mobile-calculator.sheldonfrith.com',
             github: 'https://github.com/Sheldonfrith/simple-mobile-calculator',
             icon: '/images/calculator-icon.svg',
-            techStack: ['React-Native','Expo'],
+            techStack: ['React'],
         },
         'fazenda-meats' : {
             title: 'Fazenda Meats',
@@ -65,7 +65,7 @@ export default function PortfolioItems() {
             link: 'http://fazendameats.com',
             github: '',
             icon: '/images/goat-icon.svg',
-            techStack: ['Wordpress','Woo Commerce', 'Elementor'],
+            techStack: ['Wordpress','WooCommerce', 'Elementor'],
         },
         't-y-p-e': {
             title: 'T-Y-P-E Full App',

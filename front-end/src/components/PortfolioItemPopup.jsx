@@ -1,10 +1,13 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react';
 import styled from 'styled-components';
+import {getTechStackIconAndLink} from '../lib/TechStackIcons';
+import IconButton from './reusable/IconButton';
 
 const Container = styled.div`
     margin: 1rem;
     background-color: ${props=>props.theme.white};
-    height: 80vh;
+    /* height: 80vh; */
+    padding: 0 0 2rem 0;
     width: 80vw;
     display: flex;
     flex-direction: column;
@@ -33,9 +36,18 @@ const Button = styled.button`
     margin: 0.8rem;
     cursor: pointer;
 `;
+const TechStackIcons = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 85%;
+    padding: 0 1rem 1rem 1rem;
+`;
 
 
-export default function PortfolioItemPopup({title, description, githubLink, directLink}) {
+
+export default function PortfolioItemPopup({title, description, techStackList, githubLink, directLink}) {
 
 const openInTab =(link)=>{
     window.open(link);
@@ -44,6 +56,15 @@ const openInTab =(link)=>{
 return (
 <Container>
     <Title>{title}</Title>
+    {techStackList?<TechStackIcons>
+        <div>Built <br></br>with:</div>
+        {techStackList.map((tooltip,index) => {
+        const arr = getTechStackIconAndLink(tooltip);
+        // console.log(tooltip,arr);
+        if (!arr) return <></>;
+        return <IconButton key={'techstack',index} tooltip={tooltip} icon={tooltip} iconSize={40} isNotMaterialUI={true} margin={0} onClick={()=>openInTab(arr[1])}/>;
+    })}
+    </TechStackIcons>:<></>}
     <Description>
         {description}
     </Description>
