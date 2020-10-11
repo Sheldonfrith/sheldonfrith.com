@@ -86,7 +86,7 @@ export default function ContactArea({ theme, bottomSocialButtons }) {
     <Container>
       <ContactButtons>{bottomSocialButtons}</ContactButtons>
       <ContactImageContainer>
-        <ContactImage src={theme.contactPic}></ContactImage>
+        <ContactImage src={window.innerWidth<900?theme.contactPicSmall:theme.contactPicLarge}></ContactImage>
         <ContactBorder />
         <ContactTitle>CONTACT ME</ContactTitle>
         <ContactText>

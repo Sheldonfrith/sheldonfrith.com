@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+
+const fadeInFromBlack = keyframes`
+  from {
+    filter: brightness(0%);
+  }
+  to {
+    filter: brightness(100%);
+  }
+`;
 
 const TitleArea = styled.div`
   display: flex;
@@ -17,17 +26,29 @@ const Title = styled.h1`
   padding: 0 1rem;
 `;
 const Background = styled.div`
+  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background-size: cover;
   backrgound-repeat: no-repeat;
-  background-image: url(${(props) => props.theme.headerPic});
+  background-image: url(${(props) => props.theme.headerPicMax});
   height: 80vh;
   width: 100%;
   flex: auto;
+  @media (max-width: 2100){
+    background-image: url(${props=>props.theme.headerPic2050});
+  }
+  @media(max-width: 1500){
+    background-image: url(${props=>props.theme.headerPic1500});
+  }
+  @media(max-width: 850){
+    background-image: url(${props=>props.theme.headerPic850});
+  }
+  /* animation: ${fadeInFromBlack} 2s linear; */
   @media (max-width: ${props=>props.theme.primaryBreakpoint}px){
     height: 70vh;
+    background-image: url(${props=> props.theme.headerPic500});
   }
 `;
 const SubArea = styled.div`
