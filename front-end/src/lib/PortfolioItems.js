@@ -4,7 +4,7 @@ export default function PortfolioItems() {
         't-y-p-e-demo': {
             title: 'T-Y-P-E',
             status: 'Demo',
-            summary: 'Simple demo of a hardcore typing speed trainer made for programmers. Built from scratch using React.',
+            summary: 'Simple demo of a hardcore typing speed trainer made for programmers.',
             image: '/images/t-y-p-e-demo.png',
             showImage: true,
             link: 'https://t-y-p-e.com',
@@ -15,10 +15,10 @@ export default function PortfolioItems() {
         'sharp-ar': {
             title: 'Sharp Augmented Reality',
             status: 'Live Beta',
-            summary: 'Just finished a project for an Augmented Reality startup to develop a client dashboard, analytics, and basic backend architecture/security. Reference available upon request.',
+            summary: 'A recently finished  project for an Augmented Reality startup to develop a client dashboard, analytics, and basic backend architecture/security. Reference available upon request.',
             image: '/images/modelviewer.png',
             showImage: true,
-            link: '',
+            link: 'https://sharpar.io',
             github: '',
             icon: '/images/a-r-icon.svg',
             techStack: ['React','Javascript','Firebase','Express']
@@ -37,7 +37,7 @@ export default function PortfolioItems() {
         'simple-auth-demo': {
             title: 'Simple Authorization',
             status: 'Demo',
-            summary: 'Simple backend with secure endpoints requiring login to access. Demo of functionality. Built using Node>Express>Loopback 4>Passport, hosted on AWS EC2 instance. UI is SSR using pug/jade hosted on the same server as the backend.',
+            summary: 'Simple backend with secure endpoints requiring login to access. Demo of functionality.',
             image: '/images/simple-auth-demo.png',
             showImage: true,
             link: 'https://simple-auth-demo.sheldonfrith.com/',
@@ -59,7 +59,7 @@ export default function PortfolioItems() {
         'fazenda-meats' : {
             title: 'Fazenda Meats',
             status: 'Live',
-            summary: 'A simple wordpress website, with woo-commerce store, elementor theme, for my goat farming business.',
+            summary: 'A simple homepage and online store for my goat farming business.',
             image: '/images/fazendameats.png',
             showImage: true,
             link: 'http://fazendameats.com',
