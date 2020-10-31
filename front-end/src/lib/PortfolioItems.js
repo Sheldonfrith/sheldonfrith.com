@@ -1,6 +1,17 @@
 export default function PortfolioItems() {
 
     const mainObject = {
+        'the-place-for-me': {
+            title: 'The Place For Me',
+            status: 'Under Construction',
+            summary: 'Web app consuming my public api (api.theplacefor.me) designed to tell you where you should live based on a detailed questionaire taking into account a large number of global datasets.',
+            image: '/images/World-Countries.jpg',
+            showImage: true,
+            link: 'https://theplacefor.me',
+            github: 'https://github.com/Sheldonfrith/whereshouldilive',
+            icon: '/images/world-icon.svg',
+            techStack: ['React','Typescript','Netlify', 'Styled Components']
+        },
         't-y-p-e-demo': {
             title: 'T-Y-P-E',
             status: 'Demo',
@@ -11,17 +22,6 @@ export default function PortfolioItems() {
             github: 'https://github.com/Sheldonfrith/t-y-p-e-demo',
             icon: '/images/t-y-p-e-icon.svg',
             techStack: ['React','CSS','Netlify'],
-        },
-        'sharp-ar': {
-            title: 'Sharp Augmented Reality',
-            status: 'Live Beta',
-            summary: 'A recently finished  project for an Augmented Reality startup to develop a client dashboard, analytics, and basic backend architecture/security. Reference available upon request.',
-            image: '/images/modelviewer.png',
-            showImage: true,
-            link: 'https://sharpar.io',
-            github: '',
-            icon: '/images/a-r-icon.svg',
-            techStack: ['React','Javascript','Firebase','Express']
         },
         'the-place-for-me-api':{
             title: 'Public API',
@@ -34,28 +34,28 @@ export default function PortfolioItems() {
             icon: '/images/world-icon.svg',
             techStack: ['Laravel','MySQL','Digital Ocean','PHP']
         },
-        'the-place-for-me': {
-            title: 'The Place For Me',
-            status: 'Under Construction',
-            summary: 'Web app consuming my public api (api.theplacefor.me) designed to tell you where you should live based on a detailed questionaire taking into account a large number of global datasets.',
-            image: '/images/World-Countries.jpg',
+        'sharp-ar': {
+            title: 'Sharp Augmented Reality',
+            status: 'Live Beta',
+            summary: 'A recently finished  project for an Augmented Reality startup to develop a client dashboard, analytics, and basic backend architecture/security. Reference available upon request.',
+            image: '/images/modelviewer.png',
             showImage: true,
-            link: 'https://theplacefor.me',
-            github: 'https://github.com/Sheldonfrith/whereshouldilive',
-            icon: '/images/world-icon.svg',
-            techStack: ['React','Typescript','Netlify', 'Styled Components']
+            link: 'https://sharpar.io',
+            github: '',
+            icon: '/images/a-r-icon.svg',
+            techStack: ['React','Javascript','Firebase','Express']
         },
-        'simple-auth-demo': {
-            title: 'Simple Authorization',
-            status: 'Demo',
-            summary: 'Simple backend with secure endpoints requiring login to access. Demo of functionality.',
-            image: '/images/simple-auth-demo.png',
-            showImage: true,
-            link: 'https://simple-auth-demo.sheldonfrith.com/',
-            github: 'https://github.com/Sheldonfrith/SimpleAuthDemo',
-            icon: '/images/security-icon.svg',
-            techStack: ['React','Bootstrap', 'Express','AWS'],
-        },
+        // 'simple-auth-demo': {
+        //     title: 'Simple Authorization',
+        //     status: 'Demo',
+        //     summary: 'Simple backend with secure endpoints requiring login to access. Demo of functionality.',
+        //     image: '/images/simple-auth-demo.png',
+        //     showImage: true,
+        //     link: 'https://simple-auth-demo.sheldonfrith.com/',
+        //     github: 'https://github.com/Sheldonfrith/SimpleAuthDemo',
+        //     icon: '/images/security-icon.svg',
+        //     techStack: ['React','Bootstrap', 'Express','AWS'],
+        // },
         'simple-mobile-calculator': {
             title: 'Simple Mobile Calculator',
             status: 'Demo',

@@ -83,7 +83,7 @@ return (
           </ToolkitSearchbar>
           <ToolkitTextArea>
             <MainSpecialties>
-              ...using <b>React</b>, <b>Node</b> and <b>Express</b>. I have
+              ...using <b>React</b>, <b>Typescript/Javascript</b>,  and <b>PHP with Laravel</b>. I have
               experience with other technologies and languages including:
             </MainSpecialties>
             <SubSpecialties>

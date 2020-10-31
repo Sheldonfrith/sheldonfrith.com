@@ -47,6 +47,8 @@ export default function GlobalProvider({ children }) {
     I am a highly adaptable software developer with a passion for solving difficult problems.
 `,"string");
     const [subSpecialties, setSubSpecialties] = useMyState([
+        'Node backends with Express',
+        'CSS, Styled Components, Bootstrap, Tailwinds',
         'REST and GraphQL APIs',
         'Firebase, AWS, and Digital Ocean Cloud Services',
         'SQL and noSQL Databases',
@@ -55,7 +57,7 @@ export default function GlobalProvider({ children }) {
         'Python',
         'Visual Basic and advanced Excel programming',
         'Wordpress',
-        'HTML and CSS'
+        'HTML5'
     ],'array');
   const [
     socialMediaButtonSizeAndColor,
