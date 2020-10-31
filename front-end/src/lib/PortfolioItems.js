@@ -23,16 +23,27 @@ export default function PortfolioItems() {
             icon: '/images/a-r-icon.svg',
             techStack: ['React','Javascript','Firebase','Express']
         },
+        'the-place-for-me-api':{
+            title: 'Public API',
+            status: 'Beta',
+            summary: 'The backend that powers my other project "theplacefor.me", built with a LAMP stack. Anyone can use this API to build an app similar to "theplacefor.me" which ranks all the countries in the world based on a wide variety of custom criteria. Visit api.theplacefor.me to read the API Docs and Statistical Methodology. Im still in the process of adding datasets.',
+            image: '',
+            showImage: true,
+            link: 'https://api.theplacefor.me',
+            github: 'https://github.com/Sheldonfrith/theplaceforme-backend',
+            icon: '/images/world-icon.svg',
+            techStack: ['Laravel','MySQL','Digital Ocean','PHP']
+        },
         'the-place-for-me': {
             title: 'The Place For Me',
             status: 'Under Construction',
-            summary: 'Web app designed to tell you where you should live based on a detailed questionaire taking into account a large number of global datasets. Currently populating the database with country data, but you can still currently test out the basic functionality.',
+            summary: 'Web app consuming my public api (api.theplacefor.me) designed to tell you where you should live based on a detailed questionaire taking into account a large number of global datasets.',
             image: '/images/World-Countries.jpg',
             showImage: true,
             link: 'https://theplacefor.me',
             github: 'https://github.com/Sheldonfrith/whereshouldilive',
             icon: '/images/world-icon.svg',
-            techStack: ['React','Express','Netlify','AWS', 'Bootstrap']
+            techStack: ['React','Typescript','Netlify', 'Styled Components']
         },
         'simple-auth-demo': {
             title: 'Simple Authorization',
