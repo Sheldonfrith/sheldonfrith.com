@@ -56,17 +56,17 @@ export default function PortfolioItems() {
         //     icon: '/images/security-icon.svg',
         //     techStack: ['React','Bootstrap', 'Express','AWS'],
         // },
-        'simple-mobile-calculator': {
-            title: 'Simple Mobile Calculator',
-            status: 'Demo',
-            summary: 'A simple test app to work out the kinks of developing native mobile apps. Larger projects planned for the future.',
-            image: '/images/mobile-calculator.png',
-            showImage: true,
-            link: 'https://simple-mobile-calculator.sheldonfrith.com',
-            github: 'https://github.com/Sheldonfrith/simple-mobile-calculator',
-            icon: '/images/calculator-icon.svg',
-            techStack: ['React'],
-        },
+        // 'simple-mobile-calculator': {
+        //     title: 'Simple Mobile Calculator',
+        //     status: 'Demo',
+        //     summary: 'A simple test app to work out the kinks of developing native mobile apps. Larger projects planned for the future.',
+        //     image: '/images/mobile-calculator.png',
+        //     showImage: true,
+        //     link: 'https://simple-mobile-calculator.sheldonfrith.com',
+        //     github: 'https://github.com/Sheldonfrith/simple-mobile-calculator',
+        //     icon: '/images/calculator-icon.svg',
+        //     techStack: ['React'],
+        // },
         'fazenda-meats' : {
             title: 'Fazenda Meats',
             status: 'Live',
@@ -76,19 +76,19 @@ export default function PortfolioItems() {
             link: 'http://fazendameats.com',
             github: '',
             icon: '/images/goat-icon.svg',
-            techStack: ['Wordpress','WooCommerce', 'Elementor'],
+            techStack: ['Wordpress','Woo Commerce', 'Elementor'],
         },
-        't-y-p-e': {
-            title: 'T-Y-P-E Full App',
-            status: 'Coming Soon',
-            summary: 'Based on the T-Y-P-E Demo. The full app will have a backend with user accounts. It will include new features like custom and premade training modes (ex. Java, C++, HTML specific typing training), as well as detailed lifetime stats for each user, and more.',
-            image: '',
-            showImage: false,
-            link: 'https://t-y-p-e.com',
-            github: '',
-            icon: '/images/t-y-p-e-icon.svg',
-            techStack: ['React','Express','CSS']
-        },
+        // 't-y-p-e': {
+        //     title: 'T-Y-P-E Full App',
+        //     status: 'Coming Soon',
+        //     summary: 'Based on the T-Y-P-E Demo. The full app will have a backend with user accounts. It will include new features like custom and premade training modes (ex. Java, C++, HTML specific typing training), as well as detailed lifetime stats for each user, and more.',
+        //     image: '',
+        //     showImage: false,
+        //     link: 'https://t-y-p-e.com',
+        //     github: '',
+        //     icon: '/images/t-y-p-e-icon.svg',
+        //     techStack: ['React','Express','CSS']
+        // },
     }
 
 
