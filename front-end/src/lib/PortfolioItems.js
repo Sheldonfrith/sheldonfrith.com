@@ -3,7 +3,7 @@ export default function PortfolioItems() {
     const mainObject = {
         'the-place-for-me': {
             title: 'The Place For Me',
-            status: 'Under Construction',
+            status: 'Beta',
             summary: 'Web app consuming my public api (api.theplacefor.me) designed to tell you where you should live based on a detailed questionaire taking into account a large number of global datasets.',
             image: '/images/World-Countries.jpg',
             showImage: true,
