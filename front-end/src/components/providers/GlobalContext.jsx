@@ -30,6 +30,8 @@ export default function GlobalProvider({ children }) {
     headerPic1500: '/images/sheldonfrith-header-1500.jpg',
     headerPic500: '/images/sheldonfrith-header-500.jpg',
     headerPic850: '/images/sheldonfrith-header-850.jpg',
+    headerPicBlur: '/images/sheldonfrith-header-max-blur.webp',
+    headerPicUgly: '/images/sheldonfrith-header-max-ugly.webp',
     lightblue:`#C7D0D8`,
     grey:`#5A6066`,
     aboutPic:`/images/meWithIzzy.png`,
