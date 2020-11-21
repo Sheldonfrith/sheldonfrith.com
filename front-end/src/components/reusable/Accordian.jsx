@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AccordionSection from './AccordianSection'
 
-export default function Accordian({children}) {
-    const initialOpenSections = {
-        "Work History": true,
+export default function Accordian({children, initialOpenSectionNames}) {
+    const getInitialOpenSections = ()=>{
+        const openSectionsObject = {}
+        initialOpenSectionNames.forEach(name=>{
+            openSectionsObject[name] = true;
+        });
+        return openSectionsObject;
     }
-    const [openSections, setOpenSections] = useState(initialOpenSections);
+    const [openSections, setOpenSections] = useState(getInitialOpenSections());
     const onClick = label => {
-
         const isOpen = !!openSections[label];
         setOpenSections({[label]: !isOpen});
     };
@@ -29,6 +32,5 @@ export default function Accordian({children}) {
                 ))
             }
         </div >
-
     );
 }

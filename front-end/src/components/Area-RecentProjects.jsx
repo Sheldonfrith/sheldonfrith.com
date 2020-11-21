@@ -1,21 +1,20 @@
 import React, {useState, useEffect, useContext, useCallback, useRef} from 'react';
 import styled from 'styled-components';
-import {GlobalContext} from './providers/GlobalContext';
 import HorizontalGallery from './reusable/HorizontalGallery';
-import useMyState from '../lib/Hooks/useMyState';
-import useMyEffect from '../lib/Hooks/useMyEffect';
-import useOnClickOutside from '../lib/Hooks/useOnClickOutside';
-import PortfolioItemPopup from './PortfolioItemPopup';
+import PortfolioItemPopup from './Popup-PortfolioItem';
 import LargePopup from './reusable/LargePopup';
+import {verticalFlexBox, horizontalFlexBox} from '../reusable-styles';
+import {getPortfolioItems} from '../database';
+import {getTheme} from '../ui-constants';
+import {useConditionalEffect}from '../hooks';
+
+const portfolioItems = getPortfolioItems();
+const theme = getTheme();
 
 const Container = styled.div`
   margin: 5rem auto 0 auto;
   width: 90vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+  ${verticalFlexBox}
 `;
 const ContainerTitle = styled.h1`
   color: ${(props) => props.theme.black};
@@ -24,11 +23,7 @@ const ContainerTitle = styled.h1`
 `;
 const Gallery = styled(HorizontalGallery)``;
 const PortfolioItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+  ${verticalFlexBox}
   cursor: pointer;
 `;
 const PortfolioItemIcon = styled.img`
@@ -53,65 +48,45 @@ const PortfolioItemTitle = styled.h4`
 `;
 
 const mouseMoveThreshold = 40;//px
-let initialX = null;
-let initialY = null;
 
-export default function RecentProjects({theme}) {
-    const globalContext = useContext(GlobalContext);
+export default function RecentProjects() {
 
-  const portfolioItems = globalContext.portfolioItems;
+  const [currentItem, setCurrentItem] = useState(null);
+  const [portfolioPopupDisplay, setPortfolioPopupDisplay] = useState('none');
+  const [autoPlayGallery, setAutoPlayGallery] = useState(true);
+  const [lastClickedIndex, setLastClickedIndex]= useState(null);
+  const [mousePositionStart, setMousePositionStart] = useState({x:null, y:null});
 
-  const [currentItem, setCurrentItem] = useMyState(null,'object');
-  const [portfolioPopupDisplay, setPortfolioPopupDisplay] = useMyState('none','string');
-  const [autoPlayGallery, setAutoPlayGallery] = useMyState(true,'boolean');
-  const [lastClickedIndex, setLastClickedIndex]= useMyState(null, 'number');
-  
-  const handleMouseDown =(e)=>{
-    initialX = e.clientX;
-    initialY = e.clientY;
+  const getMousePositionLargestChange = (startPos, endPos) =>{
+    const deltaX = Math.abs(startPos.x-endPos.x);
+    const deltaY = Math.abs(startPos.y-endPos.y);
+    return Math.max(deltaX, deltaY);
   }
-    
-  const handleMouseUp =(e,index)=>{
-    //detect if should open popup or not
-    //if it was NOT a drag event (determined by mouseMoveThreshold) then fire the popup
-    const currX = e.clientX;
-    const currY = e.clientY;
-    const xChange = Math.abs(initialX-currX);
-    const yChange = Math.abs(initialY-currY);
-    // console.log(xChange, yChange, mouseMoveThreshold)
-    if (xChange<mouseMoveThreshold && yChange<mouseMoveThreshold){
-      openPopup(e,index);
-    } 
-    //reset the click variables
-      initialX = null;
-      initialY = null;
+
+  const isDragEvent = (e)=>{
+    const mousePositionEnd = {x:e.clientX, y:e.clientY};
+    const largestChange = getMousePositionLargestChange(mousePositionStart, mousePositionEnd);
+    if (largestChange < mouseMoveThreshold) return false
+    return true;
   }
-  const openPopup=(e, index)=>{
-    //ONLY FIRE IF MOUSE WAS NOT HELD DOWN OR DRAGGED
-    //check the duration
-    
+
+  const openPopup= (e, index)=>{
     const itemID = e.target.id;
-    //stop gallery autoplay
-    setAutoPlayGallery(false);
-    //record the index so it can be reset
     setLastClickedIndex(index);
-    //set popup display variables
-    console.log('detected click on ',e.target);
     setCurrentItem({...portfolioItems[itemID]});
-    setPortfolioPopupDisplay('block');
   }
-  
-  //close porfolio popup on click outside
-  const portfolioPopupRef = useRef(null);
-  useOnClickOutside(portfolioPopupRef,()=>{
-    //check if this is relevant
-    if (portfolioPopupDisplay ==='none') return;
-    console.log('detected click outside, closing');
-    setPortfolioPopupDisplay('none');
+
+  useConditionalEffect([currentItem],()=>{
+    //waits for appropriate state updates, instead of displaying the popup directly in the openPopup method
+    if(!currentItem) return;
+    setPortfolioPopupDisplay('block');
   });
-  //close portfolio popup when x is pressed
-  const closePortfolioPopup = ()=>{
-    setPortfolioPopupDisplay('none');
+  const handleMouseUp = (e,index)=>{
+    if (!isDragEvent(e)) openPopup(e,index);
+  }
+
+  const handleMouseDown = (e)=>{
+    setMousePositionStart({x:e.clientX, y:e.clientY});
   }
 
 return (
@@ -122,9 +97,8 @@ return (
             <LargePopup
                 closeButtonBackgroundColor={theme.orange}
                 closeButtonColor={theme.white}
-                containerRef={portfolioPopupRef}
                 containerDisplay={portfolioPopupDisplay}
-                closePopup={closePortfolioPopup}
+                setContainerDisplay={setPortfolioPopupDisplay}
                 darkColor={theme.black}
                 lightColor={theme.white}
                 accentColor={theme.orange}
@@ -137,12 +111,12 @@ return (
                 techStackList={currentItem.techStack || null}
               />:<div>...Loading</div>}
             </LargePopup>
-            <Gallery autoPlay={autoPlayGallery} startIndex={lastClickedIndex}>
+            <Gallery autoPlay={autoPlayGallery} startIndex={lastClickedIndex} setStartIndex={setLastClickedIndex}>
               {Object.keys(portfolioItems).map((itemID, index) => {
                 return (
-                  <PortfolioItem 
-                  id={itemID} 
-                  key={"portfolioItem" + index} 
+                  <PortfolioItem
+                  id={itemID}
+                  key={"portfolioItem" + itemID}
                   onMouseDown={handleMouseDown}
                   onMouseUp={(e)=>handleMouseUp(e,index)}
                   >

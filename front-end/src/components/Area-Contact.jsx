@@ -1,23 +1,22 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
 import styled from 'styled-components';
 import {Email, Phone} from '@material-ui/icons';
+import {getEmail, getPhone} from'../database';
+import  {verticalFlexBox, horizontalFlexBox} from'../reusable-styles';
+import {getTheme} from '../ui-constants';
+const theme = getTheme();
 
 const Container = styled.div`
   margin: 5rem auto 5rem auto;
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  ${horizontalFlexBox}
   @media (max-width: ${(props) => props.theme.primaryBreakpoint}px) {
     flex-direction: column-reverse;
   }
-  align-items: center;
   justify-content: center;
 `;
 const ContactButtons = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  ${horizontalFlexBox}
   margin: 3rem 0 3rem 0;
 `;
 const ContactImageContainer = styled.div`
@@ -75,13 +74,14 @@ const ContactTitle = styled.h2`
   }
 `;
 const IconAndText = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  ${horizontalFlexBox}
   justify-content: flex-start;
 `;
 
-export default function ContactArea({ theme, bottomSocialButtons }) {
+const email = getEmail();
+const phone = getPhone();
+
+export default function ContactArea({ bottomSocialButtons }) {
   return (
     <Container>
       <ContactButtons>{bottomSocialButtons}</ContactButtons>
@@ -94,12 +94,12 @@ export default function ContactArea({ theme, bottomSocialButtons }) {
           <br></br>
           <IconAndText>
             <Email style={{ color: theme.white, margin: "0 0.5rem 0 0" }} />{" "}
-            sheldonfrith@hotmail.com
+            {email}
           </IconAndText>
           <br></br>
           <IconAndText>
             <Phone style={{ color: theme.white, margin: "0 0.5rem 0 0" }} /> 1
-            289 527 2661
+            {phone}
           </IconAndText>
         </ContactText>
       </ContactImageContainer>

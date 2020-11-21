@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
 import { GitHub, LinkedIn } from "@material-ui/icons";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import useMyState from "../../lib/Hooks/useMyState";
-import useMyEffect from "../../lib/Hooks/useMyEffect";
-import Button from "@material-ui/core/Button";
 import  UpWork from "../svgs/UpworkLogo";
 import  AWS from '../svgs/AWSLogo';
 import  Bootstrap from '../svgs/BootstrapLogo';
@@ -25,8 +22,6 @@ import  WooCommerce from '../svgs/WooCommerceLogo';
 import  Wordpress from '../svgs/WordpressLogo';
 import MYSQLLogo from '../svgs/MYSQLLogo';
 import styled from 'styled-components';
-
-import {useDeltaArray, useConditionalEffect} from 'react-delta';
 
 const techLogos = [
  ['UpWork',<UpWork/>],
@@ -88,8 +83,7 @@ export default function IconButton({
   const [thisIcon, setThisIcon] = useState(null);
 
 
-  useEffect(()=>{
-    console.log('use effect triggered with', isNotMaterialUI, icon, text);
+  useEffect(()=>{//on component mount
     if (!isNotMaterialUI) {
       //IS material UI icon
       let styleObj = { cursor: "pointer" };
@@ -107,17 +101,16 @@ export default function IconButton({
       }
     } else {
         const thisIndex = techLogos.findIndex(element => element[0]===icon);
-        console.log(thisIndex, techLogos, icon)
         setThisIcon(
           <SvgIcon style={{ fontSize: iconSize, color: iconColor }}>
            {techLogos[thisIndex][1]}
         </SvgIcon>
         );
     }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   return (
-    <Container 
+    <Container
       onClick={onClick}
       margin={margin}
     >

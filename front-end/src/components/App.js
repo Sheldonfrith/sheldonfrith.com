@@ -1,23 +1,19 @@
-import React, { useContext, useRef} from "react";
-import "../styles/App.css";
-import Header from "./Header";
-import { GlobalContext } from "./providers/GlobalContext";
-import useMyState from "../lib/Hooks/useMyState";
+import React, { useState, useEffect} from "react";
+import "../stylesheets/App.css";
+import Header from "./Area-Header";
 import IconButton from "./reusable/IconButton";
-import useMyEffect from "../lib/Hooks/useMyEffect";
 import styled, { ThemeProvider } from "styled-components";
-import Footer from './Footer';
-import About from './About';
-import ToolkitArea from './ToolkitArea';
-import RecentProjects from './RecentProjects';
-import ContactArea from './ContactArea';
+import Footer from './Area-Footer';
+import About from './Area-About';
+import ToolkitArea from './Area-Toolkit';
+import RecentProjects from './Area-RecentProjects';
+import ContactArea from './Area-Contact';
+import {getTheme, getSocialButtonProps} from '../ui-constants';
+import {verticalFlexBox}from '../reusable-styles';
 
 const AppContainer = styled.div`
   font-size: 2vmax;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  ${verticalFlexBox}
   width: 100%;
   background-image: linear-gradient(
     ${(props) => props.theme.lightblue},
@@ -29,36 +25,28 @@ const AppContainer = styled.div`
   }
 `;
 
+//put these outside component since they are constants
+const githubButton = getSocialButtonProps('githubButton');
+const linkedinButton = getSocialButtonProps('linkedInButton');
+const upworkButton = getSocialButtonProps('upworkButton');
+const theme = getTheme();
+const topTitleButtonProps = [githubButton, linkedinButton, upworkButton];
+const bottomSocialButtonProps = 
+  [
+    { ...githubButton, iconSize: 30, iconColor: theme.white },
+    { ...linkedinButton, iconSize: 30, iconColor: theme.white },
+    { ...upworkButton, iconSize: 30, iconColor: theme.white },
+  ];
+
 
 
 function App() {
-  const globalContext = useContext(GlobalContext);
-  const githubButton = globalContext.githubButton;
-  const linkedinButton = globalContext.linkedinButton;
-  const upworkButton = globalContext.upworkButton;
-  const theme = globalContext.theme;
-
-  const [topTitleButtonParams, setTopTitleButtonParams] = useMyState(
-    [githubButton, linkedinButton, upworkButton],
-    "array"
-  );
-  const [bottomSocialButtonParams, setBottomSocialButtonParams] = useMyState(
-    [
-      { ...githubButton, iconSize: 30, iconColor: theme.white },
-      { ...linkedinButton, iconSize: 30, iconColor: theme.white },
-      { ...upworkButton, iconSize: 30, iconColor: theme.white },
-    ],
-    "array"
-  );
-  const [topSocialButtons, setTopSocialButtons] = useMyState(null, "array");
-  const [bottomSocialButtons, setBottomSocialButtons] = useMyState(null, "array");
-  
-
-  useMyEffect(
-    [bottomSocialButtonParams],
+  const [topSocialButtons, setTopSocialButtons] = useState(null);
+  const [bottomSocialButtons, setBottomSocialButtons] = useState(null);
+  useEffect(//on component mount
     () => {
       setBottomSocialButtons(
-        bottomSocialButtonParams.map((obj, index) => {
+        bottomSocialButtonProps.map((obj, index) => {
           return (
             <IconButton
               key={"topbuttons" + index}
@@ -75,13 +63,12 @@ function App() {
         })
       );
     },
-    [setBottomSocialButtons, bottomSocialButtonParams]
+    []
   );
-  useMyEffect(
-    [topTitleButtonParams],
-    () => {
+  useEffect(
+    () => {//on component mount
       setTopSocialButtons(
-        topTitleButtonParams.map((obj, index) => {
+        topTitleButtonProps.map((obj, index) => {
           return (
             <IconButton
               key={"topbuttons" + index}
@@ -97,20 +84,17 @@ function App() {
         })
       );
     },
-    [setTopSocialButtons, topTitleButtonParams]
+    [setTopSocialButtons, topTitleButtonProps]
   );
-
-  
-  
 
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
-        <Header topSocialButtons={topSocialButtons} theme={theme}/>
-        <About theme={theme}/>
-        <ToolkitArea theme={theme}/>
-        <RecentProjects theme={theme}/>
-        <ContactArea theme={theme} bottomSocialButtons={bottomSocialButtons}/>
+        <Header topSocialButtons={topSocialButtons}/>
+        <About/>
+        <ToolkitArea/>
+        <RecentProjects/>
+        <ContactArea bottomSocialButtons={bottomSocialButtons}/>
         <Footer/>
       </AppContainer>
     </ThemeProvider>

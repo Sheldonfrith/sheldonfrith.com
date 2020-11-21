@@ -1,16 +1,15 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react';
 import styled from 'styled-components';
-import {GlobalContext} from './providers/GlobalContext';
 import {Search } from '@material-ui/icons'
+import {getThreeMainSpecialties, getAllSubSpecialties} from '../database';
+import {verticalFlexBox, horizontalFlexBox}from '../reusable-styles';
+import {getTheme} from '../ui-constants';
+const theme = getTheme();
 
 const Container = styled.div`
   width: 100%;
   margin: 1rem auto 0 auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: space-between;
+  ${verticalFlexBox}
 `;
 const ToolkitTitle = styled.h1`
   transform: rotate(90deg);
@@ -21,10 +20,7 @@ const ToolkitTitle = styled.h1`
   color: ${(props) => props.theme.white};
 `;
 const ToolkitSearchbar = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  ${horizontalFlexBox}
   width: 70vw;
   background-color: ${(props) => props.theme.orange};
   border-radius: 0.3rem;
@@ -41,10 +37,7 @@ const ToolkitSearchbarText = styled.div`
 const ToolkitSearchbarIcon = styled.div`
   background-color: ${(props) => props.theme.white};
   border-radius: 0.3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  ${verticalFlexBox}
 `;
 const ToolkitTextArea = styled.div`
   background-color: ${(props) => props.theme.black};
@@ -66,8 +59,10 @@ const SubSpecialties = styled.div`
   font-size: 2.2vh;
 `;
 
-export default function ToolkitArea({theme}) {
-const globalContext = useContext(GlobalContext);
+const mainSpecialties = getThreeMainSpecialties();
+const subSpecialties = getAllSubSpecialties();
+
+export default function ToolkitArea() {
 
 
 return (
@@ -83,12 +78,12 @@ return (
           </ToolkitSearchbar>
           <ToolkitTextArea>
             <MainSpecialties>
-              ...using Typescript, Javascript, Node.js and PHP frameworks. I have
+              ...using {mainSpecialties[0]}, {mainSpecialties[1]}, and {mainSpecialties[2]}. I have
               experience with other technologies and languages including:
             </MainSpecialties>
             <SubSpecialties>
               <ul>
-                {globalContext.subSpecialties.map((text, index) => (
+                {subSpecialties.map((text, index) => (
                   <li key={"subSpecialty" + index}>{text}</li>
                 ))}
               </ul>

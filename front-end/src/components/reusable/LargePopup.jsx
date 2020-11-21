@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, { useState, useEffect, useRef, useContext, useCallback } from "react";
 import styled from "styled-components";
 import ClosePopupButton from "./ClosePopupButton";
+import {useOnClickOutside}from'../../hooks';
 
 let DefaultContainer = styled.div`
   display: ${(props) => props.display};
@@ -15,9 +16,8 @@ const defaultDarkColor = "black";
 
 export default function LargePopup({
   children,
-  containerRef,
   containerDisplay,
-  closePopup,
+  setContainerDisplay,
   accentColor,
   lightColor,
   darkColor,
@@ -31,6 +31,18 @@ export default function LargePopup({
   accentColor = accentColor ? accentColor : defaultAccentColor;
   lightColor = lightColor ? lightColor : defaultLightColor;
   darkColor = darkColor ? darkColor : defaultDarkColor;
+
+   //close porfolio popup on click outside
+   const containerRef = useRef(null);
+   useOnClickOutside(containerRef,()=>{
+     //check if this is relevant
+     if (containerDisplay ==='none') return;
+     setContainerDisplay('none');
+   });
+   //close portfolio popup when x is pressed
+   const closePopup = ()=>{
+      setContainerDisplay('none');
+   }
 
   return (
     <DefaultContainer
