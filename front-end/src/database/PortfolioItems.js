@@ -1,4 +1,3 @@
-export default function PortfolioItems() {
 
     const mainObject = {
         'the-place-for-me': {
@@ -91,6 +90,7 @@ export default function PortfolioItems() {
         // },
     }
 
+    export default function getPortfolioItems() {
 
     return mainObject;
 }

@@ -1,22 +1,17 @@
 
-import React, {useState, useEffect, useContext, useCallback, useRef} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-import Close from '@material-ui/icons'
 import LargePopup from './reusable/LargePopup';
-import ClosePopupButton from './reusable/ClosePopupButton';
-import useMyState from '../lib/Hooks/useMyState';
-import useOnClickOutside from '../lib/Hooks/useOnClickOutside';
-import ResumePopup from './ResumePopup';
-import {GlobalContext} from './providers/GlobalContext';
+import ResumePopup from './Popup-CV';
+import {verticalFlexBox} from '../reusable-styles';
+import {getAboutBlurb}from '../database';
+import {getTheme} from '../ui-constants';
+const theme = getTheme();
 
 const AboutArea = styled.div`
   width: 100%;
   margin: 5rem auto 0 auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  ${verticalFlexBox}
 `;
 
 const AboutTitle = styled.h4`
@@ -57,10 +52,7 @@ const AboutImgBorder = styled.div`
 const AboutTextArea = styled.div`
   width: 60vw;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  ${verticalFlexBox}
   background-color: ${(props) => props.theme.orange};
   margin: 6rem 8rem 3rem 4rem;
   @media (max-width: ${props=>props.theme.primaryBreakpoint}px){
@@ -85,36 +77,23 @@ const AboutButton = styled.button`
 `;
 const AboutAnimation = styled.img``;
 
-export default function About({theme}) {
-    const globalContext = useContext(GlobalContext);
-    const [resumePopupDisplay, setResumePopupDisplay] = useMyState('none','string');
+const aboutMeBlurb = getAboutBlurb();
+
+export default function About() {
+    const [resumePopupDisplay, setResumePopupDisplay] = useState('none');
 
     //RESUME POPUP
-  const handleCVButtonClick=(e)=>{
-    const itemID = e.target.id;
-    //set popup display variables
+  const handleCVButtonClick=()=>{
     setResumePopupDisplay('block');
   }
-  //close porfolio popup on click outside
-  const resumePopupRef = useRef(null);
-  useOnClickOutside(resumePopupRef,()=>{
-    //check if this is relevant
-    if (resumePopupDisplay ==='none') return;
-    console.log('detected click outside, closing');
-    setResumePopupDisplay('none');
-  });
-  //close portfolio popup when x is pressed
-  const closeResumePopup = ()=>{
-    setResumePopupDisplay('none');
-  }
+ 
 return (
 <AboutArea>
         <LargePopup
             closeButtonBackgroundColor={theme.orange}
             closeButtonColor={theme.white}
-            containerRef={resumePopupRef}
             containerDisplay={resumePopupDisplay}
-            closePopup={closeResumePopup}
+            setContainerDisplay={setResumePopupDisplay}
             containerStyle={{
                 left: '6%',
                 top: '18%'
@@ -129,7 +108,7 @@ return (
           <AboutAnimation></AboutAnimation>
           <AboutTextArea>
             <AboutTitle>About Me</AboutTitle>
-            <AboutDescription>{globalContext.aboutMeBlurb}</AboutDescription>
+            <AboutDescription>{aboutMeBlurb}</AboutDescription>
             <AboutButton onClick={handleCVButtonClick}>MY CV</AboutButton>
           </AboutTextArea>
         </AboutArea>

@@ -1,16 +1,14 @@
 
 import React, {useState, useEffect, useContext, useCallback} from 'react';
-import Resume from './Resume';
+import Resume from './ResumeContent';
 import styled from 'styled-components';
+import {verticalFlexBox, horizontalFlexBox} from '../reusable-styles';
 
 const Container = styled.div`
     margin: 1rem;
     background-color: ${props=>props.theme.white};
     width: 80vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    ${verticalFlexBox}
 `;
 const Title = styled.h3`
     text-align: center;
@@ -25,10 +23,7 @@ const Description = styled.div`
     text-overflow: ellipsis;
 `;
 const DownloadButtons = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    ${horizontalFlexBox}
     margin: 0 1rem;
 `;
 const Button = styled.button`

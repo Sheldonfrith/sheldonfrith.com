@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import Accordian from "./Accordian";
+import Accordian from "./reusable/Accordian";
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -7,10 +7,10 @@ const Container = styled.div`
 `;
 
 
-export default function Reume(props) {
+export default function Resume(props) {
   return (
       <Container>
-        <Accordian>
+        <Accordian initialOpenSectionNames={['workHistory']}>
           <div className="softSkills" label="Soft Skills">
             <h4>Self-motivated and hard-working</h4>
             <p>

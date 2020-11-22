@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
 import styled from "styled-components";
-import { getTechStackIconAndLink } from "../lib/TechStackIcons";
+import { getTechStackIconAndLink } from "../ui-constants";
 import IconButton from "./reusable/IconButton";
+import {verticalFlexBox, horizontalFlexBox} from '../reusable-styles';
 
 const Container = styled.div`
   margin: 1rem;
@@ -9,10 +10,7 @@ const Container = styled.div`
   /* height: 80vh; */
   padding: 0 0 2rem 0;
   width: 80vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  ${verticalFlexBox}
 `;
 const Title = styled.h3`
   text-align: center;
@@ -37,9 +35,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const TechStackIcons = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  ${horizontalFlexBox}
   justify-content: space-evenly;
   width: 85%;
   padding: 0 1rem 1rem 1rem;
@@ -52,6 +48,9 @@ export default function PortfolioItemPopup({
   githubLink,
   directLink,
 }) {
+  const handleIconClick=useCallback(()=>{
+
+  },[])
 
   return (
     <Container>
@@ -62,18 +61,19 @@ export default function PortfolioItemPopup({
             Built <br></br>with:
           </div>
           {techStackList.map((tooltip, index) => {
-            const arr = getTechStackIconAndLink(tooltip);
-            console.log(tooltip,arr);
-            if (!arr) return <></>;
+            const iconFileAndLinkArray = getTechStackIconAndLink(tooltip);
+            if (!iconFileAndLinkArray) return <></>;
             return (
               <IconButton
-                key={("techstack", index)}
+                key={("techstack", tooltip)}
                 tooltip={tooltip}
                 icon={tooltip}
                 iconSize={40}
                 isNotMaterialUI={true}
                 margin={0}
-                onClick={() => window.open(arr[1])}
+                onClick={() => { 
+                  window.open(iconFileAndLinkArray[1])
+                }}
               />
             );
           })}

@@ -1,13 +1,12 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react';
 import styled from 'styled-components';
+import {horizontalFlexBox, verticalFlexBox}from '../reusable-styles';
 
 const FooterArea = styled.div`
     background-color: ${props=>props.theme.black};
     height: 10vh;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    ${horizontalFlexBox}
     justify-content: center;
 `;
 const FooterText = styled.div`
