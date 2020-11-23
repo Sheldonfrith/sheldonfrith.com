@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from "react";
-import "../stylesheets/App.css";
 import Header from "./Area-Header";
 import IconButton from "./reusable/IconButton";
 import styled, { ThemeProvider } from "styled-components";
