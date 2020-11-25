@@ -40,6 +40,7 @@ const bottomSocialButtonProps =
 
 
 function App() {
+  //testing SENTRY
   const [topSocialButtons, setTopSocialButtons] = useState(null);
   const [bottomSocialButtons, setBottomSocialButtons] = useState(null);
   useEffect(//on component mount
@@ -98,6 +99,6 @@ function App() {
       </AppContainer>
     </ThemeProvider>
   );
-}
+} 
 
 export default App;
