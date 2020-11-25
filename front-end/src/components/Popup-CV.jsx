@@ -49,7 +49,6 @@ return (
     <DownloadButtons>
         <Button onClick={()=>openInTab('/SheldonFrithResume.docx')}>WORD VERSION</Button>
         <Button onClick={()=>openInTab('/SheldonFrithResume.pdf')}>PDF VERSION</Button>
-        <Button onClick={()=>openInTab('/SheldonFrithResume.html')}>HTML VERSION</Button>
     </DownloadButtons>
     <Resume/>
 </Container>
