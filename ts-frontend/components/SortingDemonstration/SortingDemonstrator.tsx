@@ -20,7 +20,8 @@ import {
   sortingAlgorithmNames,
 } from "../../lib/sortingAlgorithms/All";
 import { SortingAlgorithm } from "../../lib/sortingAlgorithms/SortingAlgorithm";
-import { assertIsKeyOf, assertIsType, isKeyOf } from "../../lib/TypeHelpers";
+import {  assertIsType, isKeyOf } from "../../lib/TypeHelpers";
+import Table from "../Table";
 
 interface SortResults
   extends Record<SortingAlgorithmName, { result: number[]; runtime: number }> {
@@ -235,6 +236,31 @@ const SortingDemonstrator: React.FunctionComponent<
     },
   };
 
+  const getTableData = useCallback(()=>{
+      assertDefined(sortResults);
+      const keys = objectKeys(sortResults[0]);
+      const data: any = {}
+      //fill the object with blank arrays
+      keys.forEach(key=>{
+        data[key] = []
+      });
+      //fill in the actual data
+      sortResults.forEach(res => {
+        const dT = res.dataType;
+        keys.forEach(key => {
+          const valTypeIsObject = (key === 'countCPP' || key === 'countJS' || key === 'prototypeJS' || key === 'quickCPP' || key == 'quickJS')
+          if (valTypeIsObject){
+            data[key].push(res[key].runtime.toFixed(2))
+          }else {
+            //@ts-expect-error
+            data[key].push( dT !== 'int16'? res[key].toFixed(2): res[key])
+
+          }
+        })
+      })
+      return data
+  },[sortResults]);
+
   return (
     <div>
       {objectKeys(numberInputsHelper).map((readableName) => {
@@ -281,43 +307,12 @@ const SortingDemonstrator: React.FunctionComponent<
       <div>
         {sortResults ? (
           <div>
-            {sortResults.slice().reverse().map((res) => {
-              return (
-                <div key={res.prototypeJS.runtime}>
-                  <h2>Results</h2>
-                  {objectKeys(res).map((key) => {
-                    if (isKeyOf(sortingAlgorithmNames, key)) {
-                      assertIsType<SortingAlgorithmName>(key);
-                      return (
-                        <div key={key}>
-                          <h4>{sortingAlgorithmNames[key]}</h4>
-                          <div>{res[key].runtime}</div>
-                        </div>
-                      );
-                    } else if (
-                      key === "arrayLength" ||
-                      key === "lowerBound" ||
-                      key === "upperBound"
-                    ) {
-                      return (
-                        <div key={key}>
-                          <h4>{key}</h4>
-                          <div>{res[key]}</div>
-                        </div>
-                      );
-                    } else if (key === "dataType") {
-                      return (
-                        <div key={key}>
-                          <h4>{key}</h4>
-                          <div>{res[key]}</div>
-                        </div>
-                      );
-                    }
-                  })}
-                </div>
-              );
-            })}
-            <h3>Past Results</h3>
+            <h2>Results</h2>
+            <Table
+            numRows={sortResults.length+1}
+            data = {getTableData()}
+            />
+           
           </div>
         ) : (
           <></>

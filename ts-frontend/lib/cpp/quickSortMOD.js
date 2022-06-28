@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 var quickSort = (() => {
-  var _scriptDir = "wasm/quickSort.wasm";
+  var _scriptDir = "/wasm/quickSort.wasm";
   
   return (
 function(quickSort) {
@@ -484,10 +484,10 @@ function abort(what) {
 var wasmBinaryFile;
 
 if (Module["locateFile"]) {
-wasmBinaryFile = 'wasm/quickSort.wasm';
-wasmBinaryFile = 'wasm/quickSort.wasm';
+wasmBinaryFile = '/wasm/quickSort.wasm';
+wasmBinaryFile = '/wasm/quickSort.wasm';
 } else {
-wasmBinaryFile = 'wasm/quickSort.wasm';
+wasmBinaryFile = '/wasm/quickSort.wasm';
 }
 
 const getBinaryPromise = () => new Promise((resolve, reject) => {

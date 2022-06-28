@@ -10,7 +10,7 @@ extern "C"
         numType t = *a;                        \
         *a = *b;                               \
         *b = t;                                \
-    }                                          
+    }
     // A utility function to swap two elements
     // void swapInt8(int8_t *a, int8_t *b)
     // {
@@ -20,7 +20,7 @@ extern "C"
     // }
 
 #define DECLARE_PARTITION_FUNCTION(numType)                      \
-    numType partition##numType(numType arr[], int low, int high) \
+    int partition##numType(numType arr[], int low, int high) \
     {                                                            \
         numType pivot = arr[high];                               \
         int i = (low - 1);                                       \
@@ -64,7 +64,7 @@ extern "C"
     {                                                         \
         if (low < high)                                       \
         {                                                     \
-            numType pi = partition##numType(arr, low, high);  \
+            int pi = partition##numType(arr, low, high);  \
             quickSort##numType(arr, low, pi - 1);             \
             quickSort##numType(arr, pi + 1, high);            \
         }                                                     \
@@ -87,19 +87,16 @@ extern "C"
     //         quickSortInt8(arr, pi + 1, high);
     //     }
     // }
-    DECLARE_SWAP_FUNCTION(int8_t)
     DECLARE_SWAP_FUNCTION(int16_t)
     DECLARE_SWAP_FUNCTION(int32_t)
     DECLARE_SWAP_FUNCTION(float)
     DECLARE_SWAP_FUNCTION(double)
 
-    DECLARE_PARTITION_FUNCTION(int8_t)
     DECLARE_PARTITION_FUNCTION(int16_t)
     DECLARE_PARTITION_FUNCTION(int32_t)
     DECLARE_PARTITION_FUNCTION(float)
     DECLARE_PARTITION_FUNCTION(double)
 
-    DECLARE_QUICK_SORT_FUNCTION(int8_t)
     DECLARE_QUICK_SORT_FUNCTION(int16_t)
     DECLARE_QUICK_SORT_FUNCTION(int32_t)
     DECLARE_QUICK_SORT_FUNCTION(float)

@@ -7,12 +7,18 @@
 import sys
 
 def main():
-    inFilePath = sys.argv[1]
+    if len(sys.argv) < 2:
+    # if sys.argv[1] == None or sys.argv[1] == "":
+        print("Instructions for params: ")
+        print("1st = inFilePath, 2nd = outFilePath, 3rd = pathTo .wasm relative to build, don NOT include /")
+        return
+    inFilePath = sys.argv[1] #! must be full path
     print(inFilePath)
-    outFilePath = sys.argv[2]
-    pathToDotWasmFileRelativeToBuild = sys.argv[3]  # ! Must include "/" at start
+    outFilePath = sys.argv[2] #! must be full path
+    pathToDotWasmFileRelativeToBuild = sys.argv[3]  # ! Must NOT include "/"
+    pathToDotWasmFileRelativeToBuild = "/"+pathToDotWasmFileRelativeToBuild
     print(pathToDotWasmFileRelativeToBuild)
-    wasmFileName = sys.argv[4]
+    # wasmFileName = sys.argv[4]
 
     # state variables
     currentlyRemovingEntireFunction = False
