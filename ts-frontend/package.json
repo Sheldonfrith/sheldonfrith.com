@@ -1,0 +1,33 @@
+{
+  "name": "ts-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predev": "echo %INIT_CWD% && bash %INIT_CWD%/refreshTypesForRGV.bash && bash %INIT_CWD%/CustomLinting.bash %INIT_CWD%",
+    "dev": "next dev ",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.182",
+    "@types/vis": "^4.21.24",
+    "lodash": "^4.17.21",
+    "next": "12.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-graph-vis": "^1.0.7",
+    "unit.js": "^2.1.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.0",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.5",
+    "@types/uuid": "^8.3.4",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
+    "typescript": "4.7.4"
+  }
+}
