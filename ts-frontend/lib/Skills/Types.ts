@@ -31,7 +31,7 @@ const narrowCategories = [
 ] as const;
 export type NarrowCategories = typeof narrowCategories[any];
 
-export interface SkillItem {
+export type SkillItem = Readonly<{
   broadCategory: BroadCategories;
   narrowCategory?: NarrowCategories | undefined;
   conceptualCategory: ConceptualCategories;
@@ -42,7 +42,7 @@ export interface SkillItem {
   importance: number;
   hasParent: boolean;
   parentOrBestConnectionPoint: SkillNames; // needs a type
-}
+}>;
 export type SkillNames = typeof skillNames[any];
 const skillNames = [
   "Figma",
