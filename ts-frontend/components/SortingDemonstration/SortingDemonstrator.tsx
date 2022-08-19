@@ -1,3 +1,5 @@
+import assert from "assert";
+
 import React, {
   useState,
   useEffect,
@@ -20,9 +22,17 @@ import {
   sortingAlgorithmNames,
 } from "../../lib/sortingAlgorithms/All";
 import { SortingAlgorithm } from "../../lib/sortingAlgorithms/SortingAlgorithm";
-import {  assertIsType, isKeyOf } from "../../lib/TypeHelpers";
+import { assertIsType, isKeyOf } from "../../lib/TypeHelpers";
 import Table from "../Table";
-
+import CodeSnippet from "../CodeSnippet";
+import {
+  CPPCountingSortCode,
+  CPPQuickSortCode,
+  JSCountingSortCode,
+  JSQuickSortCode,
+} from "../../lib/Constants";
+import BarChart from "../BarChart";
+import { isNumber } from "lodash";
 interface SortResults
   extends Record<SortingAlgorithmName, { result: number[]; runtime: number }> {
   dataType: DataTypeName;
@@ -30,6 +40,7 @@ interface SortResults
   lowerBound: number;
   upperBound: number;
 }
+type TableColNames = SortingAlgorithmName | "dataType" | "arrayLength" | "lowerBound" | "upperBound";
 
 function assertDefined(v: any): asserts v {
   if (v === undefined) {
@@ -60,14 +71,19 @@ const SortingDemonstrator: React.FunctionComponent<
     number | undefined
   >(1000);
   const [generatedList, setGeneratedList] = useState<JsAndCArray>();
+  const [unsortedListSample, setUnsortedListSample] = useState<number[]>();
   const [listUsedInLastSort, setListUsedInLastSort] = useState<JsAndCArray>();
   const [startTimeLastSortCall, setStartTimeLastSortCall] = useState<number>();
   const [waitingForSort, setWaitingForSort] = useState<boolean>(false);
   const [sortResults, setSortResults] = useState<SortResults[]>();
+  const [sortedListSample, setSortedListSample] = useState<number[]>();
   const [sorters, setSorters] =
     useState<Record<SortingAlgorithmName, SortingAlgorithm>>();
   const [lastArrayGenerator, setLastArrayGenerator] =
     useState<ArrayGenerator>();
+  const [codeToDisplay, setCodeToDisplay] = useState<
+    "cppQuickSort" | "cppCountSort" | "jsQuickSort" | "jsCountSort"
+  >("cppQuickSort");
 
   const verifyAllSortsAreIdentical = useCallback(
     (resultsAndRuntimes: SortResults) => {
@@ -175,11 +191,12 @@ const SortingDemonstrator: React.FunctionComponent<
       return;
     }
     const resultsAndTimings = await runAllSortsWithNewArray();
+    setSortedListSample(resultsAndTimings.prototypeJS.result.slice(0, 10));
     setSortResults((prev) => {
       if (!prev) return [resultsAndTimings];
       const clone = [...prev];
       clone.push(resultsAndTimings);
-      console.log(clone)
+      console.log(clone);
       return clone;
     });
 
@@ -212,6 +229,7 @@ const SortingDemonstrator: React.FunctionComponent<
       upperBoundListToGenerate
     );
     setLastArrayGenerator(arrayGenerator);
+    setUnsortedListSample(Array.from(array.jsArray.slice(0, 10)));
     setGeneratedList(array);
   }
 
@@ -235,36 +253,80 @@ const SortingDemonstrator: React.FunctionComponent<
       setter: setUpperBoundListToGenerate,
     },
   };
+  function getBlankTableData(): Record<TableColNames, string>{
+    const r: Record<TableColNames, string> = {
+      countCPP: "-",
+      quickCPP: "-",
+      countJS: "-",
+      quickJS: "-",
+      prototypeJS: "-",
+      dataType: "-",
+      arrayLength: "-",
+      lowerBound: "-",
+      upperBound: "-"
+    };
+    return r;
 
-  const getTableData = useCallback(()=>{
-      assertDefined(sortResults);
-      const keys = objectKeys(sortResults[0]);
-      const data: any = {}
-      //fill the object with blank arrays
-      keys.forEach(key=>{
-        data[key] = []
-      });
-      //fill in the actual data
-      sortResults.forEach(res => {
-        const dT = res.dataType;
-        keys.forEach(key => {
-          const valTypeIsObject = (key === 'countCPP' || key === 'countJS' || key === 'prototypeJS' || key === 'quickCPP' || key == 'quickJS')
-          if (valTypeIsObject){
-            data[key].push(res[key].runtime.toFixed(2))
-          }else {
-            //@ts-expect-error
-            data[key].push( dT !== 'int16'? res[key].toFixed(2): res[key])
-
+  }
+  const getTableData = useCallback(() => {
+    assertDefined(sortResults);
+    const keys = objectKeys(sortResults[0]);
+    //@ts-expect-error
+    const data: Record<TableColNames,string[]> = {};
+    //fill the object with blank arrays
+    keys.forEach((key) => {
+      data[key] = [];
+    });
+    //fill in the actual data
+    sortResults.forEach((res: SortResults) => {
+      const dT: DataTypeName = res.dataType;
+      keys.forEach((key) => {
+        assert(key in res);
+        const valTypeIsObject =
+          key === "countCPP" ||
+          key === "countJS" ||
+          key === "prototypeJS" ||
+          key === "quickCPP" ||
+          key == "quickJS";
+        if (key === "dataType") {
+          data[key].push(res[key]);
+        } else if (valTypeIsObject) {
+          let val = res[key].runtime.toFixed(2);
+          //@ts-expect-error
+          if (val !== val || isNaN(val)) {
+            val = "NA";
           }
-        })
-      })
-      return data
-  },[sortResults]);
+          data[key].push(val);
+        } else {
+          data[key].push(parseFloat(res[key].toString()).toFixed(2));
+        }
+      });
+    });
+    return data;
+  }, [sortResults]);
+
+  function getAverage(type: SortingAlgorithmName){
+    if (!sortResults) return 0;
+    let sum  = 0.0;
+    let count = 0.0;
+    sortResults.forEach((res: SortResults) => {
+      if (!isFinite(res[type].runtime))return;
+      const divisor = res[type].result.length / 10000;
+      // console.log(divisor);
+      sum += res[type].runtime / divisor;
+      count++;
+    });
+    return sum / count;
+  }
 
   return (
     <div>
+      <h1>Sheldon Frith's Web Assembly Sorting Tester</h1>
+      <h2>Randomly Generate an Unsorted List:</h2>
       {objectKeys(numberInputsHelper).map((readableName) => {
         return (
+          <>
+          <label>{readableName}  </label>
           <input
             key={readableName}
             placeholder={readableName}
@@ -274,8 +336,11 @@ const SortingDemonstrator: React.FunctionComponent<
               numberInputsHelper[readableName].setter(e.target.valueAsNumber)
             }
           />
+          <br/>
+          </>
         );
       })}
+      <label>Data Type   </label>
       <select
         onChange={(e) =>
           setDataTypeOfListToGenerate(e.target.value as DataTypeName)
@@ -289,6 +354,7 @@ const SortingDemonstrator: React.FunctionComponent<
           );
         })}
       </select>
+      <br/>
       <button
         disabled={
           waitingForSort ||
@@ -299,25 +365,87 @@ const SortingDemonstrator: React.FunctionComponent<
         }
         onClick={onGenerateClick}
       >
-        Generate New List
-      </button>
-      <button disabled={generatedList === undefined} onClick={onSortClick}>
-        Sort
+        Generate
       </button>
       <div>
-        {sortResults ? (
-          <div>
-            <h2>Results</h2>
-            <Table
-            numRows={sortResults.length+1}
-            data = {getTableData()}
-            />
-           
-          </div>
+        <h4> Generated List (unsorted sample)</h4>
+
+        {unsortedListSample ? (
+          unsortedListSample.map((val: number, index: number) => {
+            return (
+              <span key={index}>
+                {val.toFixed(2)}{" "}
+                {index >= unsortedListSample.length - 1 ? "" : ","}
+              </span>
+            );
+          })
         ) : (
-          <></>
+          <> </>
         )}
       </div>
+      <h2> Sort the List:</h2>
+      <button disabled={(generatedList === undefined)} onClick={(generatedList===undefined)?()=>{}:onSortClick}>
+        {(generatedList===undefined)?sortedListSample===undefined?'No List to Sort':'Already Sorted':'Sort'}
+      </button>
+      <div>
+        <h4> Generated List (sorted)</h4>
+        {sortedListSample ? (
+          sortedListSample.map((val: number, index: number) => {
+            return (
+              <span key={index}>
+                {val.toFixed(2)}{" "}
+                {index >= sortedListSample.length - 1 ? "" : ","}
+              </span>
+            );
+          })
+        ) : (
+          <> </>
+        )}
+      </div>
+      <div>
+        
+          <div>
+            <h2>Results</h2>
+            <i>
+              Note: Quick Sort algorithms not applicable if data type is
+              floating point.
+            </i>
+            <Table minRows={5} numRows={sortResults?sortResults.length +1:0} data={sortResults?getTableData():undefined} emptyDataDict={getBlankTableData()}/>
+          </div>
+      </div>
+      {sortResults?
+      <BarChart 
+      datasetNamesInOrder={["Average Time (ms) * 10000 / Array Length"]} 
+      xAxisLabelsInOrder={["C++ Quick Sort","C++ Counting Sort", "JS Quick Sort", "JS Counting Sort", "JS Prototype Sort"]} 
+      dataByDatasetName={{
+        "Average Time (ms) * 10000 / Array Length": [
+          getAverage("quickCPP"),
+          getAverage("countCPP"),
+          getAverage("quickJS"),
+          getAverage("countJS"),
+          getAverage("prototypeJS")
+        ]
+      }}      
+      ></BarChart>
+      : <></>}
+      <h2> View Code</h2>
+      <select onChange={(e) => setCodeToDisplay(e.target.value)}>
+        <option value="cppQuickSort">C++ Quick Sort</option>
+        <option value="cppCountSort">C++ Count Sort</option>
+        <option value="jsQuickSort">JS Quick Sort</option>
+        <option value="jsCountSort">JS Count Sort</option>
+      </select>
+      {codeToDisplay === "cppQuickSort" ? (
+        <CodeSnippet language="clike" code={CPPQuickSortCode} />
+      ) : codeToDisplay === "cppCountSort" ? (
+        <CodeSnippet language="clike" code={CPPCountingSortCode} />
+      ) : codeToDisplay === "jsQuickSort" ? (
+        <CodeSnippet language="javascript" code={JSQuickSortCode} />
+      ) : codeToDisplay === "jsCountSort" ? (
+        <CodeSnippet language="javascript" code={JSCountingSortCode} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

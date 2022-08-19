@@ -4,10 +4,7 @@
 #include <iostream>
 #include <vector>
 extern "C" {
-// Counting sort which takes negative numbers as well
-// taken from https://www.geeksforgeeks.org/counting-sort/
-// very slightly modified
-
+    // "Counting Sort" standard algorithm, can handle negative numbers
     #define DECLARE_COUNT_SORT_FUNCTION(numType)\
     void countSort##numType(numType arr[], int const length)\
     {\
