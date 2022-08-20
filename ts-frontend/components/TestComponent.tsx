@@ -1,15 +1,15 @@
-import React, {useState, useEffect, useContext, useCallback, useRef} from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  useRef,
+} from "react";
 
-
-interface TestComponentProps{
-    testProp: number
+interface TestComponentProps {
+  testProp: number;
 }
-const TestComponent: React.FunctionComponent<TestComponentProps> =({})=> {
-
-return (
-<div>
-
-</div>
-);
-}
+const TestComponent: React.FunctionComponent<TestComponentProps> = ({}) => {
+  return <div></div>;
+};
 export default TestComponent;

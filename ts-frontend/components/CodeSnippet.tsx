@@ -5,8 +5,7 @@ import React, {
   useCallback,
   useRef,
 } from "react";
-import Prism from 'prismjs'
-
+import Prism from "prismjs";
 
 interface CodeSnippetProps {
   code: string;
@@ -16,10 +15,10 @@ const CodeSnippet: React.FunctionComponent<CodeSnippetProps> = ({
   code,
   language,
 }) => {
-    //syntax highlighting
-useEffect(()=> {
+  //syntax highlighting
+  useEffect(() => {
     Prism.highlightAll();
-  },[code, language]);
+  }, [code, language]);
   return (
     <pre>
       <code className={`language-${language}`}>{code}</code>

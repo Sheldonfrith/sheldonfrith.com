@@ -1,6 +1,5 @@
 import { SkillItem } from "./Types";
 
-
 export const skill1: SkillItem = {
   name: "Figma",
   importance: 1,
@@ -697,8 +696,6 @@ export const skill62: SkillItem = {
   hasParent: true,
   parentOrBestConnectionPoint: "Python",
 } as const;
-
-
 
 // function getStringOrUnd(): string | undefined{
 //   return undefined;

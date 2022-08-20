@@ -5,12 +5,13 @@
  * found in the LICENSE file.
  */
 
-#include <stdint.h>
 #include <iostream>
-extern "C"{
-void processArray(double inArray[], int const length ) {
-    for (int i=0; i<length; i++){
-        inArray[i] ++;
+#include <stdint.h>
+extern "C" {
+void processArray(double inArray[], int const length)
+{
+    for (int i = 0; i < length; i++) {
+        inArray[i]++;
     }
 }
 }

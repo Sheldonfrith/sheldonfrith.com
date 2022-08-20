@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.horizontal-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

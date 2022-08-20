@@ -64,7 +64,7 @@ export function createGraphData() {
     },
   ];
   //@ts-expect-error
-  const nodesPerGroup: Record< BroadCategories, SkillItem[]> = {};
+  const nodesPerGroup: Record<BroadCategories, SkillItem[]> = {};
 
   const experienceFactor = 0.3;
   const skillFactor = 0.5;
@@ -188,7 +188,7 @@ export const GraphTest = () => {
   }
   return (
     <Graph
-    //@cust-ignore
+      //@cust-ignore
       key={JSON.stringify(graphData)}
       graph={graphData}
       options={options}

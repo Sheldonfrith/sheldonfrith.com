@@ -28,11 +28,8 @@ export class QuickSortJS implements SortingAlgorithm {
 
   private quickSort(arr: JsDataTypeArray, low: number, high: number) {
     if (low < high) {
-      /* arr[p] is now
-              at right place */
+      // arr[p] is in position
       const partitioningIndex = this.partition(arr, low, high);
-      // Separately sort elements before
-      // partition and after partition
       this.quickSort(arr, low, partitioningIndex - 1);
       this.quickSort(arr, partitioningIndex + 1, high);
     }

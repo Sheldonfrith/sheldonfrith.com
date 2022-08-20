@@ -5,10 +5,8 @@
  * found in the LICENSE file.
  */
 
-#include <stdint.h>
 #include <iostream>
+#include <stdint.h>
 extern "C" {
-float sumNumbers(float num1, float num2) {
-    return num1 + num2;
-}
+float sumNumbers(float num1, float num2) { return num1 + num2; }
 }

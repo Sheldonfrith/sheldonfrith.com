@@ -43,7 +43,7 @@ const Table: React.FunctionComponent<TableProps> = ({
       setEmptyData(objectKeys(emptyDataDict).map((key) => emptyDataDict[key]));
     }
   }, [data, header, emptyDataDict]);
-  useEffect(() => { 
+  useEffect(() => {
     if (!data) return;
     setHeader(objectKeys(data));
   }, [data, emptyData]);
@@ -66,7 +66,7 @@ const Table: React.FunctionComponent<TableProps> = ({
     return rowOriented;
   }
   useEffect(() => {
-    if (data && data[objectKeys(data)[0]].length >= numRows-1) {
+    if (data && data[objectKeys(data)[0]].length >= numRows - 1) {
       const rowOrientedData = colOrientedToRowOriented(
         dictToMatrixRemoveKeys(data)
       );
@@ -96,6 +96,11 @@ const Table: React.FunctionComponent<TableProps> = ({
   console.log(dataToUse);
   return (
     <table>
+      <thead>
+        <th colSpan={4}>List Data</th>
+        <th colSpan={5}>Sorting Runtimes (ms)</th>
+      </thead>
+
       {header && dataToUse ? (
         dataToUse.map((row: Row, rowInd) => {
           if (rowInd === 0) {
