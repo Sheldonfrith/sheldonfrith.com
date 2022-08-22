@@ -30,7 +30,7 @@ const Home: NextPage = () => {
         <ShowcaseCard
           title="WAsm Speed Tester"
           image="/images/WasmTesterPreview.jpg"
-          link="http://localhost:3000/wasm-speed-tester"
+          link="http://sheldonfrith.com/wasm-speed-tester"
         />
         </div>
         <ContactFooter/>
