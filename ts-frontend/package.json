@@ -6,7 +6,7 @@
     "predev": "echo %INIT_CWD% && bash %INIT_CWD%/refreshTypesForRGV.bash && bash %INIT_CWD%/CustomLinting.bash %INIT_CWD%",
     "dev": "next dev ",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port=4000",
     "lint": "next lint",
     "test": "jest --watch"
   },
