@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@types/prismjs": "^1.26.0",
+    "@types/react-syntax-highlighter": "^15.5.4",
+    "babel-plugin-prismjs": "^2.1.0",
+    "prismjs": "^1.28.0",
+    "react-syntax-highlighter": "^15.5.0"
+  }
+}
