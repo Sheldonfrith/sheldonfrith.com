@@ -1,0 +1,3 @@
+export const CONSTANT_ONE = "CONSTANT_ONE";
+export const CONSTANT_TWO = "CONSTANT_TWO";
+export const CONSTANT_THRE = "CONSTANT_THREE";
