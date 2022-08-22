@@ -6,6 +6,7 @@ import React, {
   useRef,
 } from "react";
 import { JsAndCArray } from "../../lib/arrayGenerators/ArrayGenerator";
+import style from '../../styles/WAsmTester.module.css';
 
 interface SorterProps {
   generatedList: JsAndCArray | undefined;
@@ -18,25 +19,28 @@ const Sorter: React.FunctionComponent<SorterProps> = ({
   sortedListSample,
 }) => {
   return (
-    <div>
-      <h2> Sort the List:</h2>
+    <>
+      <h2 className={style.subtitle}>2. Sort the List:</h2>
+      <div className={style.buttonSamplePair}>
+
       <button
         disabled={generatedList === undefined}
         onClick={generatedList === undefined ? () => {} : onSortClick}
+        // style={{width:'100%'}}
       >
         {generatedList === undefined
           ? sortedListSample === undefined
-            ? "No List to Sort"
-            : "Already Sorted"
+            ? "Sort"
+            : "Sort"
           : "Sort"}
       </button>
-      <div>
-        <h4> Generated List (sorted)</h4>
+      <div className={style.listSample}>
+
         {sortedListSample ? (
           sortedListSample.map((val: number, index: number) => {
             return (
               <span key={index}>
-                {val.toFixed(2)}{" "}
+                {val.toLocaleString('en',{useGrouping:false, maximumFractionDigits:2})}{" "}
                 {index >= sortedListSample.length - 1 ? "" : ","}
               </span>
             );
@@ -45,7 +49,8 @@ const Sorter: React.FunctionComponent<SorterProps> = ({
           <> </>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 export default Sorter;

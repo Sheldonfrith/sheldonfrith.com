@@ -7,8 +7,8 @@ import React, {
   useRef,
   ReactNode,
 } from "react";
-import { objectKeys } from "../lib/ObjectKeys";
-
+import { objectKeys } from "../../lib/ObjectKeys";
+import styles from '../../styles/WAsmTester.module.css';
 type Row = string[];
 type Col = string[];
 type TableDict = Record<string, Col>;
@@ -95,7 +95,7 @@ const Table: React.FunctionComponent<TableProps> = ({
 
   console.log(dataToUse);
   return (
-    <table>
+    <table className={styles.table}>
       <thead>
         <th colSpan={4}>List Data</th>
         <th colSpan={5}>Sorting Runtimes (ms)</th>

@@ -13,30 +13,18 @@ import {
   dataTypeNamesToReadableNames,
   JsAndCArray,
 } from "../../lib/arrayGenerators/ArrayGenerator";
-import countSort from "../../lib/cpp/countSortMOD";
-import quickSort from "../../lib/cpp/quickSortMOD";
 import { objectKeys } from "../../lib/ObjectKeys";
 import {
-  getInitializedSorters,
   SortingAlgorithmName,
-  sortingAlgorithmNames,
 } from "../../lib/sortingAlgorithms/All";
 import { SortingAlgorithm } from "../../lib/sortingAlgorithms/SortingAlgorithm";
 import { assertDefined, assertIsType, isKeyOf } from "../../lib/TypeHelpers";
-import Table from "../Table";
-import CodeSnippet from "../CodeSnippet";
-import {
-  CPPCountingSortCode,
-  CPPQuickSortCode,
-  JSCountingSortCode,
-  JSQuickSortCode,
-} from "../../lib/Constants";
-import BarChart from "../BarChart";
-import { isNumber } from "lodash";
 import ListGenerator from "./ListGenerator";
 import Sorter from "./Sorter";
 import TestResultsView from "./TestResultsView";
 import CodeView from "./CodeView";
+import styles from '../../styles/WAsmTester.module.css';
+
 export interface SortResults
   extends Record<SortingAlgorithmName, { result: number[]; runtime: number }> {
   dataType: DataTypeName;
@@ -163,7 +151,7 @@ const SortingDemonstrator: React.FunctionComponent<
     //   return;
     // }
     const resultsAndTimings = await runAllSortsWithNewArray();
-    setSortedListSample(resultsAndTimings.prototypeJS.result.slice(0, 10));
+    setSortedListSample(resultsAndTimings.prototypeJS.result.slice(0, 30));
     setSortResults((prev) => {
       if (!prev) return [resultsAndTimings];
       const clone = [...prev];
@@ -176,10 +164,10 @@ const SortingDemonstrator: React.FunctionComponent<
   }
 
   return (
-    <div>
-      <h1>Web Assembly Sorting Speed Tester</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Web Assembly Sorting Speed Tester</h1>
       <section>
-        <h2>Description:</h2>
+        <h2 className={styles.subtitle}>Description:</h2>
         <text>
           This tool allows you to compare the speed of various sorting
           algorithms (some in regular JS, and some in WASM C++) on different
@@ -188,6 +176,7 @@ const SortingDemonstrator: React.FunctionComponent<
       </section>
       <ListGenerator
         setGeneratedList={setGeneratedList}
+        generatedListLength={generatedList?.jsArray.length||0}
         waitingForSort={waitingForSort}
         setSorters={setSorters}
         setLastArrayGenerator={setLastArrayGenerator}

@@ -11,7 +11,8 @@ import {
   JSCountingSortCode,
   JSQuickSortCode,
 } from "../../lib/Constants";
-import CodeSnippet from "../CodeSnippet";
+import CodeSnippet from "../Misc/CodeSnippet";
+import style from '../../styles/WAsmTester.module.css';
 
 type CodeNameTypes =
   | "cppCountingSort"
@@ -25,8 +26,9 @@ const CodeView: React.FunctionComponent<CodeViewProps> = ({}) => {
     useState<CodeNameTypes>("cppQuickSort");
   return (
     <div>
-      <h2> View Code</h2>
+      <h2 className={style.subtitle}> View Sort Algorithm Source Code</h2>
       <select
+        className={style.largeSelect}
         onChange={(e) => setCodeToDisplay(e.target.value as CodeNameTypes)}
       >
         <option value="cppQuickSort">C++ Quick Sort</option>

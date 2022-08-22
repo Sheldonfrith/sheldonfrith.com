@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import Graph, { Data, Node, Edge, Options } from "react-graph-vis";
 import { v4 as uuidv4 } from "uuid";
-import { objectKeys } from "../lib/ObjectKeys";
-import { BroadCategories, SkillItem, SkillNames } from "../lib/Skills/Types";
-import { skills } from "../lib/Skills/SkillsExport";
+import { objectKeys } from "../../lib/ObjectKeys";
+import { BroadCategories, SkillItem, SkillNames } from "../../lib/Skills/Types";
+import { skills } from "../../lib/Skills/SkillsExport";
 
 function skillShouldNotHaveEdge(skill: SkillItem) {
   return (

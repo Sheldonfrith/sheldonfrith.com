@@ -20,6 +20,7 @@ import {
 } from "../../lib/sortingAlgorithms/All";
 import { SortingAlgorithm } from "../../lib/sortingAlgorithms/SortingAlgorithm";
 import { assertDefined } from "../../lib/TypeHelpers";
+import style from "../../styles/WAsmTester.module.css";
 
 function assertNotWaitingForSort(wForSort: boolean): asserts wForSort is false {
   if (wForSort) {
@@ -29,6 +30,7 @@ function assertNotWaitingForSort(wForSort: boolean): asserts wForSort is false {
 
 interface ListGeneratorProps {
   setGeneratedList: (generatedList: JsAndCArray | undefined) => void;
+  generatedListLength: number;
   waitingForSort: boolean;
   setSorters: (sorters: Record<SortingAlgorithmName, SortingAlgorithm>) => void;
   setLastArrayGenerator: (arrayGenerator: ArrayGenerator) => void;
@@ -38,6 +40,7 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
   waitingForSort,
   setSorters,
   setLastArrayGenerator,
+  generatedListLength
 }) => {
   const [lengthOfListToGenerate, setLengthOfListToGenerate] = useState<
     number | undefined
@@ -79,7 +82,7 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
       upperBoundListToGenerate
     );
     setLastArrayGenerator(arrayGenerator);
-    setUnsortedListSample(Array.from(array.jsArray.slice(0, 10)));
+    setUnsortedListSample(Array.from(array.jsArray.slice(0, 30)));
     setGeneratedList(array);
   }
 
@@ -105,11 +108,13 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
   };
 
   return (
-    <div>
-      <h2>Randomly Generate an Unsorted List:</h2>
+    <>
+      <h2 className={style.subtitle}>1. Generate an Unsorted, Random List:</h2>
+      <div className={style.inputsContainer}>
+
       {objectKeys(numberInputsHelper).map((readableName) => {
         return (
-          <>
+          <div key={readableName} className={style.labelInputPair}>
             <label>{readableName} </label>
             <input
               key={readableName}
@@ -120,25 +125,27 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
                 numberInputsHelper[readableName].setter(e.target.valueAsNumber)
               }
             />
-            <br />
-          </>
+          </div>
         );
       })}
-      <label>Data Type </label>
-      <select
-        onChange={(e) =>
-          setDataTypeOfListToGenerate(e.target.value as DataTypeName)
-        }
-      >
-        {objectKeys(dataTypeNamesToReadableNames).map((dataType) => {
-          return (
-            <option key={dataType} value={dataType}>
-              {dataTypeNamesToReadableNames[dataType]}
-            </option>
-          );
-        })}
-      </select>
-      <br />
+      <div className={style.labelInputPair}>
+        <label>Data Type </label>
+        <select
+          onChange={(e) =>
+            setDataTypeOfListToGenerate(e.target.value as DataTypeName)
+          }
+        >
+          {objectKeys(dataTypeNamesToReadableNames).map((dataType) => {
+            return (
+              <option key={dataType} value={dataType}>
+                {dataTypeNamesToReadableNames[dataType]}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      </div>
+      <div className={style.buttonSamplePair}>
       <button
         disabled={
           waitingForSort ||
@@ -151,15 +158,16 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
       >
         Generate
       </button>
-      <div>
-        <h4> Generated List (unsorted sample)</h4>
+      <div className={style.listSample}>
+        {/* <h4> Generated List (unsorted sample)</h4> */}
 
         {unsortedListSample ? (
           unsortedListSample.map((val: number, index: number) => {
+            const finalChar = generatedListLength > unsortedListSample.length ? "..." : "";
             return (
               <span key={index}>
-                {val.toFixed(2)}{" "}
-                {index >= unsortedListSample.length - 1 ? "" : ","}
+                {val.toLocaleString('en',{useGrouping:false,maximumFractionDigits:2})}{" "}
+                {index >= unsortedListSample.length - 1 ? finalChar : ","}
               </span>
             );
           })
@@ -167,7 +175,8 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
           <> </>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 export default ListGenerator;
