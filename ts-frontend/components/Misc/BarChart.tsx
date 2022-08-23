@@ -58,8 +58,8 @@ const BarChart: React.FunctionComponent<BarChartProps> = ({
     var bgColor = style.getPropertyValue("--bg");
     var textColor = style.getPropertyValue("--text1");
     const textColor2 = style.getPropertyValue("--text2");
-    var accent2 = style.getPropertyValue('--accent2');
-    var accent1 = style.getPropertyValue('--accent1');
+    var accent2 = style.getPropertyValue("--accent2");
+    var accent1 = style.getPropertyValue("--accent1");
 
     const newData = {
       labels: xAxisLabelsInOrder,
@@ -77,30 +77,30 @@ const BarChart: React.FunctionComponent<BarChartProps> = ({
     const newOptions = {
       color: textColor,
       scales: {
-        yAxes:{
+        yAxes: {
           title: {
             display: true,
             text: "Time (ms) * 1000 / Array Length",
-            color: textColor2
+            color: textColor2,
           },
           grid: {
-            color: accent1
+            color: accent1,
           },
           ticks: {
-            color: textColor
-          }
+            color: textColor,
+          },
         },
         xAxes: {
           grid: {
             // color: textColor
           },
           ticks: {
-            color: textColor
-          }
-        }
-      }
-    }
-    console.log(newData, dataByDatasetName);
+            color: textColor,
+          },
+        },
+      },
+    };
+    //console.log(newData, dataByDatasetName);
     setData(newData);
     setOptions(newOptions);
   }, [datasetNamesInOrder, dataByDatasetName, xAxisLabelsInOrder]);

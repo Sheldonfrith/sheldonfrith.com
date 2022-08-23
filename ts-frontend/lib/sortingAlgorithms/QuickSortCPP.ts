@@ -19,9 +19,9 @@ export class QuickSortCPP implements SortingAlgorithm {
         "_quickSort" + dataTypeNamesToCPPTypeNames[array.dataType];
       // console.log(funcName)
       // console.log(Array.from(arrView.data),arrView.offset,arrView.size, this.emscriptenModule[funcName]);
-      console.log("about to enter emsc module");
+      //console.log("about to enter emsc module");
       this.emscriptenModule[funcName](arrView.offset, 0, arrView.size - 1);
-      console.log("done emscr module");
+      //console.log("done emscr module");
       // console.log(arrView.data)
       return Array.from(arrView.data) as number[];
     });

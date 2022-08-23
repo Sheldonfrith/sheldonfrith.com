@@ -175,16 +175,16 @@ export class ArrayGenerator {
       );
     }
     const arrElementSpace = values.BYTES_PER_ELEMENT;
-    console.log(arrayLength * arrElementSpace);
+    //console.log(arrayLength * arrElementSpace);
 
     var memOffset = module._malloc(arrayLength * arrElementSpace);
-    console.log("after malloc");
+    //console.log("after malloc");
     const bufferName: EmscriptenModuleBufferName =
       NumberDataTypes[dataType].emscriptenBufferKey;
     const emscriptenBuffer = module[bufferName];
     const buffer = memOffset / arrElementSpace;
     emscriptenBuffer.set(values, buffer);
-    console.log("after setting one buffer, ", moduleName);
+    //console.log("after setting one buffer, ", moduleName);
     if (moduleName === "countSort") {
       this.countSortBufferForFreeing = buffer;
     } else {

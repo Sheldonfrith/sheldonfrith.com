@@ -8,7 +8,7 @@ import React, {
   ReactNode,
 } from "react";
 import { objectKeys } from "../../lib/ObjectKeys";
-import styles from '../../styles/WAsmTester.module.css';
+import styles from "../../styles/WAsmTester.module.css";
 type Row = string[];
 type Col = string[];
 type TableDict = Record<string, Col>;
@@ -37,7 +37,7 @@ const Table: React.FunctionComponent<TableProps> = ({
   const [dataToUse, setDataToUse] = useState<TableData>();
   //setup emptyData and headers if data is undefined
   useEffect(() => {
-    console.log(emptyDataDict);
+    //console.log(emptyDataDict);
     if (!data && !header && emptyDataDict) {
       setHeader(objectKeys(emptyDataDict));
       setEmptyData(objectKeys(emptyDataDict).map((key) => emptyDataDict[key]));
@@ -93,7 +93,7 @@ const Table: React.FunctionComponent<TableProps> = ({
     }
   }, [data, emptyData, numRows]);
 
-  console.log(dataToUse);
+  //console.log(dataToUse);
   return (
     <table className={styles.table}>
       <thead>

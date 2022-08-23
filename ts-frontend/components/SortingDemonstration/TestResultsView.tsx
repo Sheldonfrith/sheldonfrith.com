@@ -13,7 +13,7 @@ import { assertDefined } from "../../lib/TypeHelpers";
 import BarChart from "../Misc/BarChart";
 import Table from "../Misc/Table";
 import { SortResults } from "./SortingDemonstrator";
-import style from '../../styles/WAsmTester.module.css';
+import style from "../../styles/WAsmTester.module.css";
 export type TableColNames =
   | SortingAlgorithmName
   | "dataType"
@@ -116,7 +116,7 @@ const TestResultsView: React.FunctionComponent<TestResultsViewProps> = ({
     sortResults.forEach((res: SortResults) => {
       if (!isFinite(res[type].runtime)) return;
       const divisor = res[type].result.length / 10000;
-      // console.log(divisor);
+      // //console.log(divisor);
       sum += res[type].runtime / divisor;
       count++;
     });
@@ -126,17 +126,17 @@ const TestResultsView: React.FunctionComponent<TestResultsViewProps> = ({
   return (
     <>
       <>
-          <h2 className={style.subtitle}>Results</h2>
-          <i>
-            Note: Counting Sort algorithms not applicable if data type is floating
-            point.
-          </i>
-          <Table
-            minRows={5}
-            numRows={sortResults ? sortResults.length + 1 : 0}
-            data={sortResults ? getTableData() : undefined}
-            emptyDataDict={getBlankTableData()}
-          />
+        <h2 className={style.subtitle}>Results</h2>
+        <i>
+          Note: Counting Sort algorithms not applicable if data type is floating
+          point.
+        </i>
+        <Table
+          minRows={5}
+          numRows={sortResults ? sortResults.length + 1 : 0}
+          data={sortResults ? getTableData() : undefined}
+          emptyDataDict={getBlankTableData()}
+        />
       </>
       <div className={style.chartContainer}>
         <BarChart
@@ -148,17 +148,21 @@ const TestResultsView: React.FunctionComponent<TestResultsViewProps> = ({
             "JS Counting Sort",
             "JS Prototype Sort",
           ]}
-          dataByDatasetName={sortResults?{
-            "Average Across All Your Tests": [
-              getAverage("quickCPP"),
-              getAverage("countCPP"),
-              getAverage("quickJS"),
-              getAverage("countJS"),
-              getAverage("prototypeJS"),
-            ],
-          }:{
-            "Average Across All Your Tests": [0, 0, 0, 0, 0],
-          }}
+          dataByDatasetName={
+            sortResults
+              ? {
+                  "Average Across All Your Tests": [
+                    getAverage("quickCPP"),
+                    getAverage("countCPP"),
+                    getAverage("quickJS"),
+                    getAverage("countJS"),
+                    getAverage("prototypeJS"),
+                  ],
+                }
+              : {
+                  "Average Across All Your Tests": [0, 0, 0, 0, 0],
+                }
+          }
         ></BarChart>
       </div>
     </>

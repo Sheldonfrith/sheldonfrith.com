@@ -94,7 +94,7 @@ export function createGraphData() {
     nodesPerGroup[skill.broadCategory].push(skill);
     allNodes.push(nNode);
   });
-  console.log(allNodes);
+  //console.log(allNodes);
   const allEdges: Edge[] = [];
   skills.forEach((skill) => {
     // if has parent create a visible edge
@@ -135,7 +135,7 @@ export function createGraphData() {
       }
     }
   });
-  console.log(allEdges);
+  //console.log(allEdges);
 
   const graphData: Data = {
     edges: allEdges,

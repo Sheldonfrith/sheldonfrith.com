@@ -40,7 +40,7 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
   waitingForSort,
   setSorters,
   setLastArrayGenerator,
-  generatedListLength
+  generatedListLength,
 }) => {
   const [lengthOfListToGenerate, setLengthOfListToGenerate] = useState<
     number | undefined
@@ -111,70 +111,75 @@ const ListGenerator: React.FunctionComponent<ListGeneratorProps> = ({
     <>
       <h2 className={style.subtitle}>1. Generate an Unsorted, Random List:</h2>
       <div className={style.inputsContainer}>
-
-      {objectKeys(numberInputsHelper).map((readableName) => {
-        return (
-          <div key={readableName} className={style.labelInputPair}>
-            <label>{readableName} </label>
-            <input
-              key={readableName}
-              placeholder={readableName}
-              type="number"
-              value={numberInputsHelper[readableName].val}
-              onChange={(e) =>
-                numberInputsHelper[readableName].setter(e.target.valueAsNumber)
-              }
-            />
-          </div>
-        );
-      })}
-      <div className={style.labelInputPair}>
-        <label>Data Type </label>
-        <select
-          onChange={(e) =>
-            setDataTypeOfListToGenerate(e.target.value as DataTypeName)
-          }
-        >
-          {objectKeys(dataTypeNamesToReadableNames).map((dataType) => {
-            return (
-              <option key={dataType} value={dataType}>
-                {dataTypeNamesToReadableNames[dataType]}
-              </option>
-            );
-          })}
-        </select>
-      </div>
+        {objectKeys(numberInputsHelper).map((readableName) => {
+          return (
+            <div key={readableName} className={style.labelInputPair}>
+              <label>{readableName} </label>
+              <input
+                key={readableName}
+                placeholder={readableName}
+                type="number"
+                value={numberInputsHelper[readableName].val}
+                onChange={(e) =>
+                  numberInputsHelper[readableName].setter(
+                    e.target.valueAsNumber
+                  )
+                }
+              />
+            </div>
+          );
+        })}
+        <div className={style.labelInputPair}>
+          <label>Data Type </label>
+          <select
+            onChange={(e) =>
+              setDataTypeOfListToGenerate(e.target.value as DataTypeName)
+            }
+          >
+            {objectKeys(dataTypeNamesToReadableNames).map((dataType) => {
+              return (
+                <option key={dataType} value={dataType}>
+                  {dataTypeNamesToReadableNames[dataType]}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </div>
       <div className={style.buttonSamplePair}>
-      <button
-        disabled={
-          waitingForSort ||
-          lengthOfListToGenerate === undefined ||
-          lowerBoundListToGenerate === undefined ||
-          upperBoundListToGenerate === undefined ||
-          dataTypeOfListToGenerate === undefined
-        }
-        onClick={onGenerateClick}
-      >
-        Generate
-      </button>
-      <div className={style.listSample}>
-        {/* <h4> Generated List (unsorted sample)</h4> */}
+        <button
+          disabled={
+            waitingForSort ||
+            lengthOfListToGenerate === undefined ||
+            lowerBoundListToGenerate === undefined ||
+            upperBoundListToGenerate === undefined ||
+            dataTypeOfListToGenerate === undefined
+          }
+          onClick={onGenerateClick}
+        >
+          Generate
+        </button>
+        <div className={style.listSample}>
+          {/* <h4> Generated List (unsorted sample)</h4> */}
 
-        {unsortedListSample ? (
-          unsortedListSample.map((val: number, index: number) => {
-            const finalChar = generatedListLength > unsortedListSample.length ? "..." : "";
-            return (
-              <span key={index}>
-                {val.toLocaleString('en',{useGrouping:false,maximumFractionDigits:2})}{" "}
-                {index >= unsortedListSample.length - 1 ? finalChar : ","}
-              </span>
-            );
-          })
-        ) : (
-          <> </>
-        )}
-      </div>
+          {unsortedListSample ? (
+            unsortedListSample.map((val: number, index: number) => {
+              const finalChar =
+                generatedListLength > unsortedListSample.length ? "..." : "";
+              return (
+                <span key={index}>
+                  {val.toLocaleString("en", {
+                    useGrouping: false,
+                    maximumFractionDigits: 2,
+                  })}{" "}
+                  {index >= unsortedListSample.length - 1 ? finalChar : ","}
+                </span>
+              );
+            })
+          ) : (
+            <> </>
+          )}
+        </div>
       </div>
     </>
   );

@@ -14,16 +14,14 @@ import {
   JsAndCArray,
 } from "../../lib/arrayGenerators/ArrayGenerator";
 import { objectKeys } from "../../lib/ObjectKeys";
-import {
-  SortingAlgorithmName,
-} from "../../lib/sortingAlgorithms/All";
+import { SortingAlgorithmName } from "../../lib/sortingAlgorithms/All";
 import { SortingAlgorithm } from "../../lib/sortingAlgorithms/SortingAlgorithm";
 import { assertDefined, assertIsType, isKeyOf } from "../../lib/TypeHelpers";
 import ListGenerator from "./ListGenerator";
 import Sorter from "./Sorter";
 import TestResultsView from "./TestResultsView";
 import CodeView from "./CodeView";
-import styles from '../../styles/WAsmTester.module.css';
+import styles from "../../styles/WAsmTester.module.css";
 
 export interface SortResults
   extends Record<SortingAlgorithmName, { result: number[]; runtime: number }> {
@@ -51,7 +49,7 @@ const SortingDemonstrator: React.FunctionComponent<
 
   const verifyAllSortsAreIdentical = useCallback(
     (resultsAndRuntimes: SortResults, unsortedListUsed: JsAndCArray) => {
-      console.log(resultsAndRuntimes);
+      //console.log(resultsAndRuntimes);
       const compareString = JSON.stringify(
         resultsAndRuntimes.prototypeJS.result
       );
@@ -104,7 +102,7 @@ const SortingDemonstrator: React.FunctionComponent<
     assertDefined(sorters);
     assertDefined(generatedList);
     assertDefined(lastArrayGenerator);
-    console.log("beginning to run all sorters");
+    //console.log("beginning to run all sorters");
     // @ts-expect-error
     const resultsAndRuntimes: SortResults = {
       dataType: generatedList.dataType,
@@ -113,7 +111,7 @@ const SortingDemonstrator: React.FunctionComponent<
       upperBound: generatedList.upperBound,
     };
     objectKeys(sorters).forEach((sorterName) => {
-      console.log("running sorter", sorterName);
+      //console.log("running sorter", sorterName);
       const isFloat =
         generatedList.dataType === "float32" ||
         generatedList.dataType === "float64";
@@ -156,7 +154,7 @@ const SortingDemonstrator: React.FunctionComponent<
       if (!prev) return [resultsAndTimings];
       const clone = [...prev];
       clone.push(resultsAndTimings);
-      console.log(clone);
+      //console.log(clone);
       return clone;
     });
 
@@ -164,7 +162,7 @@ const SortingDemonstrator: React.FunctionComponent<
   }
 
   return (
-    <div className={styles.container}>
+    <div className="page">
       <h1 className={styles.title}>Web Assembly Sorting Speed Tester</h1>
       <section>
         <h2 className={styles.subtitle}>Description:</h2>
@@ -176,7 +174,7 @@ const SortingDemonstrator: React.FunctionComponent<
       </section>
       <ListGenerator
         setGeneratedList={setGeneratedList}
-        generatedListLength={generatedList?.jsArray.length||0}
+        generatedListLength={generatedList?.jsArray.length || 0}
         waitingForSort={waitingForSort}
         setSorters={setSorters}
         setLastArrayGenerator={setLastArrayGenerator}

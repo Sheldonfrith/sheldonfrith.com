@@ -7,35 +7,43 @@ import SortingDemonstrator from "../components/SortingDemonstration/SortingDemon
 import PromotionalTopBar from "../components/PromotionalTobBar";
 import ContactFooter from "../components/ContactFooter";
 import ShowcaseCard from "../components/IndexPage/ShowcaseCard";
-
+import Link from "next/link";
 
 const Home: NextPage = () => {
-  
-
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Sheldon Frith</title>
         <meta name="description" content="Sheldon Frith's Portfolio Website" />
       </Head>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Sheldon Frith</h1>
-        <button className={styles.button} onClick={()=>window.open('SheldonsCV.pdf')}>View My CV</button>
-        <div className={styles.content}>
-        <ShowcaseCard
-          title="Umny Inc."
-          image="/images/UmnySitePreview.jpg"
-          link="https://www.umny.ca"
-        />
-        <ShowcaseCard
-          title="WAsm Speed Tester"
-          image="/images/WasmTesterPreview.jpg"
-          link="http://sheldonfrith.com/wasm-speed-tester"
-        />
+      <main>
+        <div className={styles.page} data-contact-footer-add-margin>
+          <h1 className={styles.title}>Sheldon Frith</h1>
+          <button
+            className={styles.button}
+            onClick={() => window.open("SheldonsCV.pdf")}
+          >
+            View My CV
+          </button>
+          <div className={styles.content}>
+            <ShowcaseCard
+              title="Umny Inc."
+              image="/images/UmnySitePreview.jpg"
+              link="https://www.umny.ca"
+            />
+            <Link href="/wasm-speed-tester">
+              <a>
+                <ShowcaseCard
+                  title="WAsm Speed Tester"
+                  image="/images/WasmTesterPreview.jpg"
+                />
+              </a>
+            </Link>
+          </div>
+          <ContactFooter triggerFlash={false} />
         </div>
-        <ContactFooter/>
       </main>
-    </div>
+    </>
   );
 };
 
