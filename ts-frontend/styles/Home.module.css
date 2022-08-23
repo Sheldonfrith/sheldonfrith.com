@@ -91,21 +91,7 @@
 
 /* Contact Footer */
 
-.contactFooter {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid var(--text2);
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  max-height: 20vh;
-  height: 20vh;
-  position: fixed;
-  bottom: 0;
-  background: var(--bg2);
-}
-
+.contactFooter,
 .contactFooterFlash {
   display: flex;
   flex: 1;
@@ -119,6 +105,10 @@
   position: fixed;
   bottom: 0;
   background: var(--bg2);
+  min-height: unset;
+}
+
+.contactFooterFlash {
   -webkit-animation: blink-1 0.6s both;
   animation: blink-1 0.6s both;
 }
