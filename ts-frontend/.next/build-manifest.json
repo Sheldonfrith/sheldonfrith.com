@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/uACq598WcfDUWebSLRCKz/_buildManifest.js",
-    "static/uACq598WcfDUWebSLRCKz/_ssgManifest.js",
-    "static/uACq598WcfDUWebSLRCKz/_middlewareManifest.js"
+    "static/UnW1Jt48QYg9FzMoXaSts/_buildManifest.js",
+    "static/UnW1Jt48QYg9FzMoXaSts/_ssgManifest.js",
+    "static/UnW1Jt48QYg9FzMoXaSts/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -16,7 +16,7 @@
       "static/chunks/main-fc7d2f0e2098927e.js",
       "static/chunks/292-a8868b976e69cb0f.js",
       "static/css/3eb98f807f77aa2c.css",
-      "static/chunks/pages/index-b5f56a68bceab756.js"
+      "static/chunks/pages/index-d0c64aa75fd3ccac.js"
     ],
     "/_app": [
       "static/chunks/webpack-9b312e20a4e32339.js",
@@ -39,7 +39,7 @@
       "static/chunks/292-a8868b976e69cb0f.js",
       "static/chunks/803-4efbb8b6d9829bff.js",
       "static/css/e327f768ff84a72f.css",
-      "static/chunks/pages/wasm-speed-tester-88fc11819e5bf292.js"
+      "static/chunks/pages/wasm-speed-tester-e48f0f07326b913b.js"
     ]
   },
   "ampFirstPages": []

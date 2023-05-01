@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           <h1 className={styles.title}>Sheldon Frith</h1>
           <button
             className={styles.button}
-            onClick={() => window.open("SheldonsCV.pdf")}
+            onClick={() => window.open("SheldonFrithCV.pdf")}
           >
             View My CV
           </button>

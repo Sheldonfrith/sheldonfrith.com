@@ -80,7 +80,7 @@ const BarChart: React.FunctionComponent<BarChartProps> = ({
         yAxes: {
           title: {
             display: true,
-            text: "Time (ms) * 1000 / Array Length",
+            text: "Time (s) / Array Length",
             color: textColor2,
           },
           grid: {

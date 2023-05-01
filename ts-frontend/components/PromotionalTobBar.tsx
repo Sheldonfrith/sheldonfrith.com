@@ -21,7 +21,7 @@ const PromotionalTopBar: React.FunctionComponent<PromotionalTopBarProps> = ({
       </Link>
       <h2
         className={styles.topBarButton}
-        onClick={() => window.open("SheldonsCV.pdf")}
+        onClick={() => window.open("SheldonFrithCV.pdf")}
       >
         View CV
       </h2>
