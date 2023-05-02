@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "echo %INIT_CWD% && bash %INIT_CWD%/refreshTypesForRGV.bash && bash %INIT_CWD%/CustomLinting.bash %INIT_CWD%",
+    "predev": "echo %INIT_CWD% && bash %INIT_CWD%/refreshTypesForRGV.bash",
     "dev": "next dev ",
     "build": "next build",
     "start": "next start -p 4000",

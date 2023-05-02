@@ -1,32 +1,34 @@
 /* Theme colors CSS Variables*/
-@import url('https://fonts.googleapis.com/css2?family=Cousine&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lekton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Signika&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Cousine&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lekton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Signika&display=swap");
 
 :root {
   /* raw colors from theme*/
   /* darkest to lightest */
   --c0: #251e12;
-  --c05: #3B2B0D;
-  --c1: #705219;
-  --c2: #705D3A;
-  --c3: #BD892A;
-  --c4: #F0AF36;
-  --c5: #F2CA7E;
-  --c6: #FFD485;
+  --c05: #3b2b0d;
+  /* --c1: #705219; */
+  /* --c2: #705D3A; */
+  /* --c3: #BD892A; */
+  --c1: #6d2a42;
+  --c2: #592136;
+  --c3: #003c4a;
+  --c4: #f0af36;
+  --c5: #f2ca7e;
+  --c6: #ffd485;
   --c7: #fff3dc;
   --bg: var(--c7);
   --bg2: var(--c6);
   --accent0: var(--c5);
   --accent1: var(--c4);
-  --accent2: var(--c3);
+  --accent2: var(--c1);
   --text1: black;
   --text2: var(--c0);
   --text3: var(--c05);
-  --fontTitle: 'Cousine', sans-serif;
-  --fontSubtitle: 'Lekton', sans-serif;
-  --fontBody: 'Signika', sans-serif;
+  --fontTitle: "Cousine", sans-serif;
+  --fontSubtitle: "Lekton", sans-serif;
+  --fontBody: "Signika", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,13 +48,13 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--fontBody), Droid Sans Mono, DroidSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--fontBody), Droid Sans Mono, DroidSans, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
   color: var(--text1);
   width: 100%;
   height: 100%;
 }
-
 
 a {
   color: inherit;
@@ -65,7 +67,6 @@ a {
 
 pre {
   max-width: 100%;
-  ;
 }
 
 .horizontal-flex {
@@ -122,8 +123,6 @@ i {
   text-align: center;
 }
 
-
-
 main {
   min-height: 100vh;
   /* padding: 4rem 0 0 0; */
@@ -137,7 +136,7 @@ main {
   height: 100vh;
 }
 
-main>div {
+main > div {
   /* padding: 0 2rem; */
   background: var(--bg);
   width: 100%;
@@ -153,11 +152,10 @@ main>div {
 }
 
 @media screen and (max-width: 768px) {
-  main>div {
+  main > div {
     padding: 0 1rem;
   }
 }
-
 
 .vertical-flex {
   display: flex;

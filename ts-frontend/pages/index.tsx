@@ -27,14 +27,22 @@ const Home: NextPage = () => {
           </button>
           <div className={styles.content}>
             <ShowcaseCard
-              title="Umny Inc."
+              title="Ground Temperature Predictor"
+              subtitle="Example of my Machine Learning and Data Science work."
+              image="/images/vancouverMaps.webp"
+              link="https://groundtemperatures.com/accuracy"
+            />
+            <ShowcaseCard
+              title="GeoPile Predictive Software"
+              subtitle="Example of my UI development work."
               image="/images/UmnySitePreview.jpg"
-              link="https://www.umny.ca"
+              link="https://youtu.be/74QCfmN-KNU"
             />
             <Link href="/wasm-speed-tester">
               <a>
                 <ShowcaseCard
                   title="WAsm Speed Tester"
+                  subtitle="Example of my lower-level programming work."
                   image="/images/WasmTesterPreview.jpg"
                 />
               </a>

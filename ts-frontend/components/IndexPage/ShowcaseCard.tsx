@@ -11,11 +11,13 @@ interface ShowcaseCardProps {
   title: string;
   image: string;
   link?: string;
+  subtitle: string;
 }
 const ShowcaseCard: React.FunctionComponent<ShowcaseCardProps> = ({
   title,
   image,
   link,
+  subtitle,
 }) => {
   return (
     <div
@@ -23,7 +25,10 @@ const ShowcaseCard: React.FunctionComponent<ShowcaseCardProps> = ({
       onClick={() => (link ? window.open(link) : null)}
     >
       <h2 className={styles.showcaseCardTitle}>{title}</h2>
-      <img className={styles.showcaseCardImage} src={image} alt={title} />
+      <div className={styles.showcaseCardImageAndTitle}>
+        <h4 className={styles.showcaseCardSubtitle}>{subtitle}</h4>
+        <img className={styles.showcaseCardImage} src={image} alt={title} />
+      </div>
     </div>
   );
 };
