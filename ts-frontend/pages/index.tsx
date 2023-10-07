@@ -28,25 +28,26 @@ const Home: NextPage = () => {
           <div className={styles.content}>
             <ShowcaseCard
               title="Ground Temperature Predictor"
-              subtitle="Example of my Machine Learning and Data Science work."
+              subtitle="Machine Learning and Data Science"
               image="/images/vancouverMaps.webp"
-              link="https://groundtemperatures.com/accuracy"
+              link="https://app.umny.ca"
             />
             <ShowcaseCard
               title="GeoPile Predictive Software"
-              subtitle="Example of my UI development work."
+              subtitle="Complex UI Development"
               image="/images/UmnySitePreview.jpg"
               link="https://youtu.be/74QCfmN-KNU"
             />
-            <Link href="/wasm-speed-tester">
-              <a>
+            {/* <Link href="/wasm-speed-tester"> */}
+              {/* <a> */}
                 <ShowcaseCard
                   title="WAsm Speed Tester"
-                  subtitle="Example of my lower-level programming work."
+                  subtitle="Backend Performance"
                   image="/images/WasmTesterPreview.jpg"
+                  link="/wasm-speed-tester"
                 />
-              </a>
-            </Link>
+              {/* </a> */}
+            {/* </Link> */}
           </div>
           <ContactFooter triggerFlash={false} />
         </div>

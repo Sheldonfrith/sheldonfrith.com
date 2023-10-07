@@ -162,7 +162,7 @@ const SortingDemonstrator: React.FunctionComponent<
   }
 
   return (
-    <div className="page">
+    <div className={styles.page}>
       <h1 className={styles.title}>Web Assembly Sorting Speed Tester</h1>
       <section>
         <h2 className={styles.subtitle}>Description:</h2>
@@ -172,20 +172,32 @@ const SortingDemonstrator: React.FunctionComponent<
           types of lists.
         </text>
       </section>
+      <div className={styles.borderedSection}>
+
       <ListGenerator
         setGeneratedList={setGeneratedList}
         generatedListLength={generatedList?.jsArray.length || 0}
         waitingForSort={waitingForSort}
         setSorters={setSorters}
         setLastArrayGenerator={setLastArrayGenerator}
-      />
+        />
+        </div>
+      <div className={styles.borderedSection}>
+
       <Sorter
         generatedList={generatedList}
         onSortClick={onSortClick}
         sortedListSample={sortedListSample}
       />
+      </div>
+      <div className={styles.borderedSection}>
+
       <TestResultsView sortResults={sortResults} />
+      </div>
+      <div className={styles.borderedSection}>
+
       <CodeView />
+      </div>
     </div>
   );
 };

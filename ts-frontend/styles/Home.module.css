@@ -28,13 +28,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 70%;
+
 }
 
 @media screen and (max-width: 768px) {
   .content {
     /* vertical flex for small screens */
     flex-direction: column;
-    height: 70%;
   }
 
   .page {
@@ -61,7 +62,7 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
   cursor: pointer;
-  height: 430px;
+  height: 400px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -81,8 +82,14 @@
 
 .showcaseCardTitle {
   margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: var(--fontSubtitle);
+}
+@media screen and (max-width: 768px) {
+  .showcaseCardTitle {
+    font-size: 1.5rem;
+  }
+
 }
 .showcaseCardSubtitle {
   color: var(--accent2);
@@ -111,7 +118,8 @@
   align-items: center;
   width: 100%;
   max-height: 20vh;
-  height: 20vh;
+  height: 10vh;
+
   position: fixed;
   bottom: 0;
   background: var(--bg2);
@@ -127,6 +135,7 @@
   .contactFooter,
   .contactFooterFlash {
     justify-content: space-evenly;
+
   }
 }
 
@@ -137,7 +146,8 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 2rem;
-    height: 10vh;
+  height: 20vh;
+
   }
 
   .contactFooter p,
