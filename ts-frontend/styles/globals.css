@@ -12,16 +12,32 @@
   /* --c2: #705D3A; */
   /* --c3: #BD892A; */
   --c1: #6d2a42;
+
+
   --c2: #592136;
   --c3: #003c4a;
+  
   --c4: #f0af36;
+  
   --c5: #f2ca7e;
   --c6: #ffd485;
   --c7: #fff3dc;
+  --c8: #94d0de;
+  --c9: #83c8d7;
+
+  --dark-bg-1: rgb(0,0,0,0.3);
+  --dark-bg-2: rgb(0,0,0,0.5);
+  --light-bg-1: rgb(255,255,255,0.3);
+  --light-bg-2: rgb(255,255,255,0.5);
+  --dark-gradient: linear-gradient(233deg, #251e12, #554120, #552134, #251e12);
+  --light-gradient: linear-gradient(233deg, #fff3dc, #ffd485, #eca9c1, #f0af36);
+  --gradient: var(--light-gradient);
+  --bg-t-1:var(--light-bg-1);
+  --bg-t-2:var(--light-bg-2);
   --bg: var(--c7);
   --bg2: var(--c6);
-  --accent0: var(--c5);
-  --accent1: var(--c4);
+  --accent0: var(--c8);
+  --accent1: var(--c9);
   --accent2: var(--c1);
   --text1: black;
   --text2: var(--c0);
@@ -33,6 +49,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+  --gradient: var(--dark-gradient);
+    --bg-t-1:var(--dark-bg-1);
+    --bg-t-2:var(--dark-bg-2);
     --bg: var(--c0);
     --bg2: var(--c05);
     --accent0: var(--c2);
@@ -123,6 +142,7 @@ i {
   text-align: center;
 }
 
+
 main {
   min-height: 100vh;
   /* padding: 4rem 0 0 0; */
@@ -131,14 +151,18 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg);
+  /* background: var(--bg); */
   width: 100%;
   height: 100vh;
+  background: var(--gradient);
+  background-size: 800% 800%;
+  
+  -webkit-animation: bg-animation 20s ease infinite;
+  -moz-animation: bg-animation 20s ease infinite;
+  animation: bg-animation 20s ease infinite;
 }
 
 main > div {
-  /* padding: 0 2rem; */
-  background: var(--bg);
   width: 100%;
   min-height: 100%;
   height: 100%;
@@ -151,6 +175,22 @@ main > div {
   align-items: center;
 }
 
+
+@-webkit-keyframes bg-animation {
+  0%{background-position:0% 92%}
+  50%{background-position:100% 9%}
+  100%{background-position:0% 92%}
+}
+@-moz-keyframes bg-animation {
+  0%{background-position:0% 92%}
+  50%{background-position:100% 9%}
+  100%{background-position:0% 92%}
+}
+@keyframes bg-animation {
+  0%{background-position:0% 92%}
+  50%{background-position:100% 9%}
+  100%{background-position:0% 92%}
+}
 @media screen and (max-width: 768px) {
   main > div {
     padding: 0 1rem;
