@@ -27,19 +27,23 @@
 
   --dark-bg-1: rgb(0,0,0,0.3);
   --dark-bg-2: rgb(0,0,0,0.5);
+  --dark-bg-3: rgb(0,0,0,0.7);
   --light-bg-1: rgb(255,255,255,0.3);
   --light-bg-2: rgb(255,255,255,0.5);
+  --light-bg-3: rgb(255,255,255,0.7);
   --dark-gradient: linear-gradient(233deg, #251e12, #554120, #552134, #251e12);
   --light-gradient: linear-gradient(233deg, #fff3dc, #ffd485, #eca9c1, #f0af36);
   --gradient: var(--light-gradient);
   --bg-t-1:var(--light-bg-1);
   --bg-t-2:var(--light-bg-2);
+  --bg-t-3:var(--light-bg-3);
   --bg: var(--c7);
   --bg2: var(--c6);
   --accent0: var(--c8);
   --accent1: var(--c9);
   --accent2: var(--c1);
   --text1: black;
+  --text1-opposite: white;
   --text2: var(--c0);
   --text3: var(--c05);
   --fontTitle: "Cousine", sans-serif;
@@ -58,6 +62,7 @@
     --accent1: var(--c3);
     --accent2: var(--c4);
     --text1: white;
+    --text1-opposite: black;
     --text2: var(--c7);
     --text3: var(--c6);
   }

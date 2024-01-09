@@ -1,0 +1,55 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 10vh;
+    border: solid 0.2em white;
+    width: 10vh;
+    margin: 2em;
+    -webkit-animation: animation1 3s ease infinite;
+    -moz-animation: animation1 3s ease infinite;
+    animation: animation2 3s ease infinite;
+    
+}
+.Container:hover{
+    animation: animation1 3s ease infinite;
+}
+@keyframes animation2 {
+    0%{
+        border-color: var(--accent0);
+    }
+    50%{
+        border-color: var(--accent1);
+        width: 10vh;
+    }
+    75%{
+        width: 20vh;
+    }
+    100%{
+        border-color: var(--accent0);
+        width: 10vh;
+        rotate: 180deg;
+    }
+
+}
+
+
+@-webkit-keyframes animation1 {
+    0%{top:2em}
+    50%{top:-2em}
+    100%{top:0em}
+  }
+  @-moz-keyframes animation1 {
+    0%{top:2em}
+    50%{top:-2em}
+    100%{top:0em}
+  }
+  @keyframes animation1 {
+    0%{top:2em}
+    50%{top:-2em}
+    100%{top:0em}
+  }

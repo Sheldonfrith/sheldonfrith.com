@@ -19,10 +19,33 @@ const ShowcaseCard: React.FunctionComponent<ShowcaseCardProps> = ({
   link,
   subtitle,
 }) => {
+  const animationDuration = 700;
+  const [className, setClassName] = useState<string>(styles.showcaseCard);
+  const [shouldResetClassName, setShouldResetClassName] = useState(false);
+  const [animationRunning, setAnimationRunning] = useState(false);
+  useEffect(() => {
+    if (className === styles.showcaseCardClicked) {
+      setAnimationRunning(true);
+      setTimeout(() => {
+        setAnimationRunning(false);
+        setClassName(styles.showcaseCard);
+        if (link) {
+          //! enable in production
+          window.open(link);
+        }
+      }, animationDuration);
+    }
+  }, [className]);
+
   return (
     <div
-      className={styles.showcaseCard}
-      onClick={() => (link ? window.open(link) : null)}
+      className={className}
+      onClick={() => {
+        
+        if (className === styles.showcaseCard) {
+          setClassName(styles.showcaseCardClicked);
+        }
+      }}
     >
       <h2 className={styles.showcaseCardTitle}>{title}</h2>
       <div className={styles.showcaseCardImageAndTitle}>

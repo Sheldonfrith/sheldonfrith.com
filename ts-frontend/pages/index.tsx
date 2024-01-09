@@ -8,6 +8,7 @@ import PromotionalTopBar from "../components/PromotionalTobBar";
 import ContactFooter from "../components/ContactFooter";
 import ShowcaseCard from "../components/IndexPage/ShowcaseCard";
 import Link from "next/link";
+import FancyAnimation from "../components/Misc/FancyAnimation";
 
 const Home: NextPage = () => {
   return (
