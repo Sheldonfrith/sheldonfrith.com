@@ -124,7 +124,7 @@
 
   position: fixed;
   bottom: 0;
-  background:var(--bg-t-2);
+  background:var(--gradient);
   min-height: unset;
 }
 
