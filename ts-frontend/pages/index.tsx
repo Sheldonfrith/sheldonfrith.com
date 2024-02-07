@@ -34,21 +34,23 @@ const Home: NextPage = () => {
               link="https://app.umny.ca"
             />
             <ShowcaseCard
+              title="React-Elvis"
+              subtitle="Frontend UX Library"
+              image="/images/React-Elvis-Example.jpg"
+              link="https://sheldonfrith.com/elvis"
+            />
+            <ShowcaseCard
               title="GeoPile Predictive Software"
               subtitle="Complex UI Development"
               image="/images/UmnySitePreview.jpg"
               link="https://youtu.be/74QCfmN-KNU"
             />
-            {/* <Link href="/wasm-speed-tester"> */}
-              {/* <a> */}
-                <ShowcaseCard
-                  title="WAsm Speed Tester"
-                  subtitle="Backend Performance"
-                  image="/images/WasmTesterPreview.jpg"
-                  link="/wasm-speed-tester"
-                />
-              {/* </a> */}
-            {/* </Link> */}
+            <ShowcaseCard
+              title="WAsm Speed Tester"
+              subtitle="Backend Performance"
+              image="/images/WasmTesterPreview.jpg"
+              link="/wasm-speed-tester"
+            />
           </div>
           <ContactFooter triggerFlash={false} />
         </div>
