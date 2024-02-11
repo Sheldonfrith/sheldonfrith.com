@@ -51,6 +51,12 @@ const Home: NextPage = () => {
               image="/images/WasmTesterPreview.jpg"
               link="/wasm-speed-tester"
             />
+            <ShowcaseCard
+              title="Geo Control & Monitoring System"
+              subtitle="SCADA and IoT"
+              image="/images/GeoControlAndMonitoring.jpg"
+              link="https://umny.ca/smart-control/"
+            />
           </div>
           <ContactFooter triggerFlash={false} />
         </div>
