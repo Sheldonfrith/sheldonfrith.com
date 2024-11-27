@@ -34,10 +34,10 @@ const Home: NextPage = () => {
               link="https://app.umny.ca"
             />
             <ShowcaseCard
-              title="React-Elvis"
-              subtitle="Frontend UX Library"
-              image="/images/React-Elvis-Example.jpg"
-              link="https://sheldonfrith.com/elvis"
+              title="AI Powered Coloquial Translator"
+              subtitle="Prompt Eng. and API Integration"
+              image="/images/AIPoweredLocalTranslator.png"
+              link="https://sheldonfrith.com/translator"
             />
             <ShowcaseCard
               title="GeoPile Predictive Software"
@@ -50,6 +50,12 @@ const Home: NextPage = () => {
               subtitle="Backend Performance"
               image="/images/WasmTesterPreview.jpg"
               link="/wasm-speed-tester"
+            />
+            <ShowcaseCard
+              title="React-Elvis"
+              subtitle="Frontend UX Library"
+              image="/images/React-Elvis-Example.jpg"
+              link="https://sheldonfrith.com/elvis"
             />
             <ShowcaseCard
               title="Geo Control & Monitoring System"

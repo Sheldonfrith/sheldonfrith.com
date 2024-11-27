@@ -35,13 +35,12 @@ const ShowcaseCard: React.FunctionComponent<ShowcaseCardProps> = ({
         }
       }, animationDuration);
     }
-  }, [className]);
+  }, [className, link]);
 
   return (
     <div
       className={className}
       onClick={() => {
-        
         if (className === styles.showcaseCard) {
           setClassName(styles.showcaseCardClicked);
         }

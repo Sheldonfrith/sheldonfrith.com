@@ -93,24 +93,24 @@ const ContactFooter = ({ triggerFlash ,  })=>{
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("p", {
                 className: (Home_module_default()).contactFooterEmail,
-                children: "SheldonFrith@Umny.ca"
+                children: "SheldonFrith@outlook.com"
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: "horizontal-flex",
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx(icons_.LinkedIn, {
-                        onClick: ()=>window.open("https://www.linkedin.com/in/sheldon-frith/")
+                        onClick: ()=>window ? window.open("https://www.linkedin.com/in/sheldon-frith/") : null
                         ,
                         className: (Home_module_default()).contactFooterSocialIcon
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx(icons_.GitHub, {
-                        onClick: ()=>window.open("https://github.com/SheldonFrith")
+                        onClick: ()=>window ? window.open("https://github.com/SheldonFrith") : null
                         ,
                         className: (Home_module_default()).contactFooterSocialIcon
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx(stack_overflow, {
                         // fill={'white'}
-                        onClick: ()=>window.open("https://stackoverflow.com/users/4205839/sheldonfrith")
+                        onClick: ()=>window ? window.open("https://stackoverflow.com/users/4205839/sheldonfrith") : null
                         ,
                         className: (Home_module_default()).contactFooterSocialIcon
                     })

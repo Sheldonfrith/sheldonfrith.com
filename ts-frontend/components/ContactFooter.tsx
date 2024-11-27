@@ -27,22 +27,30 @@ const ContactFooter: React.FunctionComponent<ContactFooterProps> = ({
       }
     >
       <h2 className={styles.contactFooterTitle}>Contact Me:</h2>
-      <p className={styles.contactFooterEmail}>SheldonFrith@Umny.ca</p>
+      <p className={styles.contactFooterEmail}>SheldonFrith@outlook.com</p>
       <div className="horizontal-flex">
         <LinkedIn
           onClick={() =>
-            window.open("https://www.linkedin.com/in/sheldon-frith/")
+            window
+              ? window.open("https://www.linkedin.com/in/sheldon-frith/")
+              : null
           }
           className={styles.contactFooterSocialIcon}
         ></LinkedIn>
         <GitHub
-          onClick={() => window.open("https://github.com/SheldonFrith")}
+          onClick={() =>
+            window ? window.open("https://github.com/SheldonFrith") : null
+          }
           className={styles.contactFooterSocialIcon}
         ></GitHub>
         <StackOverflow
           // fill={'white'}
           onClick={() =>
-            window.open("https://stackoverflow.com/users/4205839/sheldonfrith")
+            window
+              ? window.open(
+                  "https://stackoverflow.com/users/4205839/sheldonfrith"
+                )
+              : null
           }
           className={styles.contactFooterSocialIcon}
           // style={{fill: 'white'}}
