@@ -30,38 +30,44 @@ const Home: NextPage = () => {
             <ShowcaseCard
               title="Ground Temperature Predictor"
               subtitle="Machine Learning and Data Science"
-              image="/images/vancouverMaps.webp"
+              image="/images/VancouverMapGS4MeterSeasonal5t4.gif"
               link="https://app.umny.ca"
+            />
+            <ShowcaseCard
+              title="GPU-Powered Collision Detection"
+              subtitle="Cutting Edge Performance"
+              image="/images/CollisionsGif5t4.gif"
+              link="https://github.com/Sheldonfrith/gpu_collision_detection_bevy/blob/main/README.md"
             />
             <ShowcaseCard
               title="AI Powered Coloquial Translator"
               subtitle="Prompt Eng. and API Integration"
-              image="/images/AIPoweredLocalTranslator.png"
+              image="/images/AIPoweredLocalTranslator5t4.png"
               link="https://sheldonfrith.com/translator"
             />
             <ShowcaseCard
               title="GeoPile Predictive Software"
               subtitle="Complex UI Development"
-              image="/images/UmnySitePreview.jpg"
+              image="/images/UmnySitePreview5t4.jpg"
               link="https://youtu.be/74QCfmN-KNU"
             />
             <ShowcaseCard
               title="WAsm Speed Tester"
               subtitle="Backend Performance"
-              image="/images/WasmTesterPreview.jpg"
+              image="/images/WasmTesterPreview5t4.jpg"
               link="/wasm-speed-tester"
-            />
-            <ShowcaseCard
-              title="React-Elvis"
-              subtitle="Frontend UX Library"
-              image="/images/React-Elvis-Example.jpg"
-              link="https://sheldonfrith.com/elvis"
             />
             <ShowcaseCard
               title="Geo Control & Monitoring System"
               subtitle="SCADA and IoT"
-              image="/images/GeoControlAndMonitoring.jpg"
+              image="/images/GeoControlAndMonitoring5t4.jpg"
               link="https://umny.ca/smart-control/"
+            />
+            <ShowcaseCard
+              title="React-Elvis"
+              subtitle="Frontend Error and Validation UX Library"
+              image="/images/React-Elvis-Example5t4.jpg"
+              link="https://sheldonfrith.com/elvis"
             />
           </div>
           <ContactFooter triggerFlash={false} />

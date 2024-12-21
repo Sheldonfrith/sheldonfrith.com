@@ -47,7 +47,7 @@ const ShowcaseCard: React.FunctionComponent<ShowcaseCardProps> = ({
       }}
     >
       <h2 className={styles.showcaseCardTitle}>{title}</h2>
-      <div className={styles.showcaseCardImageAndTitle}>
+      <div className={styles.showcaseCardImageAndLabel}>
         <h4 className={styles.showcaseCardSubtitle}>{subtitle}</h4>
         <img className={styles.showcaseCardImage} src={image} alt={title} />
       </div>

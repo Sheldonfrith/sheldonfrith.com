@@ -13,30 +13,38 @@
   /* --c3: #BD892A; */
   --c1: #6d2a42;
 
-
   --c2: #592136;
   --c3: #003c4a;
-  
+
   --c4: #f0af36;
-  
+
   --c5: #f2ca7e;
   --c6: #ffd485;
   --c7: #fff3dc;
   --c8: #94d0de;
   --c9: #83c8d7;
 
-  --dark-bg-1: rgb(0,0,0,0.3);
-  --dark-bg-2: rgb(0,0,0,0.5);
-  --dark-bg-3: rgb(0,0,0,0.7);
-  --light-bg-1: rgb(255,255,255,0.3);
-  --light-bg-2: rgb(255,255,255,0.5);
-  --light-bg-3: rgb(255,255,255,0.7);
-  --dark-gradient: linear-gradient(233deg, #251e12, #554120, #552134, #251e12);
-  --light-gradient: linear-gradient(233deg, #fff3dc, #ffd485, #eca9c1, #f0af36);
+  --dark-bg-1: rgb(0, 0, 0, 0.3);
+  --dark-bg-2: rgb(0, 0, 0, 0.5);
+  --dark-bg-3: rgb(0, 0, 0, 0.7);
+  --light-bg-1: rgb(255, 255, 255, 0.3);
+  --light-bg-2: rgb(255, 255, 255, 0.5);
+  --light-bg-3: rgb(255, 255, 255, 0.7);
+  --dark-gradient: linear-gradient(
+    63deg,
+    rgba(44, 41, 58, 1) 7%,
+    rgba(44, 44, 44, 1) 38%,
+    rgba(80, 72, 67, 1) 91%
+  );
+
+  /* linear-gradient(233deg, #251e12, #554120, #552134, #251e12); */
+  /* --light-gradient: linear-gradient(233deg, #fff3dc, #ffd485, #eca9c1, #f0af36); */
+  --light-gradient: linear-gradient(233deg, #ffffff, #fce8c3, #fed7d7, #ffe4b1);
+
   --gradient: var(--light-gradient);
-  --bg-t-1:var(--light-bg-1);
-  --bg-t-2:var(--light-bg-2);
-  --bg-t-3:var(--light-bg-3);
+  --bg-t-1: var(--light-bg-1);
+  --bg-t-2: var(--light-bg-2);
+  --bg-t-3: var(--light-bg-3);
   --bg: var(--c7);
   --bg2: var(--c6);
   --accent0: var(--c8);
@@ -53,9 +61,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-  --gradient: var(--dark-gradient);
-    --bg-t-1:var(--dark-bg-1);
-    --bg-t-2:var(--dark-bg-2);
+    --gradient: var(--dark-gradient);
+    --bg-t-1: var(--dark-bg-1);
+    --bg-t-2: var(--dark-bg-2);
     --bg: var(--c0);
     --bg2: var(--c05);
     --accent0: var(--c2);
@@ -66,6 +74,11 @@
     --text2: var(--c7);
     --text3: var(--c6);
   }
+}
+body {
+  overscroll-behavior: none;
+  /* or for just vertical overscroll */
+  overscroll-behavior-y: none;
 }
 
 html,
@@ -147,7 +160,6 @@ i {
   text-align: center;
 }
 
-
 main {
   min-height: 100vh;
   /* padding: 4rem 0 0 0; */
@@ -160,11 +172,12 @@ main {
   width: 100%;
   height: 100%;
   background: var(--gradient);
-  background-size: 800% 800%;
-  
-  -webkit-animation: bg-animation 20s ease infinite;
-  -moz-animation: bg-animation 20s ease infinite;
-  animation: bg-animation 20s ease infinite;
+
+  /* background-size: 800% 800%; */
+
+  /* -webkit-animation: bg-animation 20s ease infinite; */
+  /* -moz-animation: bg-animation 20s ease infinite; */
+  /* animation: bg-animation 20s ease infinite; */
 }
 
 main > div {
@@ -180,21 +193,38 @@ main > div {
   align-items: center;
 }
 
-
 @-webkit-keyframes bg-animation {
-  0%{background-position:0% 92%}
-  50%{background-position:100% 9%}
-  100%{background-position:0% 92%}
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
 }
 @-moz-keyframes bg-animation {
-  0%{background-position:0% 92%}
-  50%{background-position:100% 9%}
-  100%{background-position:0% 92%}
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
 }
 @keyframes bg-animation {
-  0%{background-position:0% 92%}
-  50%{background-position:100% 9%}
-  100%{background-position:0% 92%}
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
 }
 @media screen and (max-width: 768px) {
   main > div {

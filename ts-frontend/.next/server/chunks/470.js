@@ -14,7 +14,6 @@ module.exports = {
 	"button": "Home_button__Zs7A2",
 	"showcaseCard": "Home_showcaseCard__6Kc70",
 	"showcaseCardClicked": "Home_showcaseCardClicked___bKmJ",
-	"animationLight": "Home_animationLight__QLp6P",
 	"animationDark": "Home_animationDark__kotpp",
 	"showcaseCardImageAndLabel": "Home_showcaseCardImageAndLabel__k7___",
 	"showcaseCardTitle": "Home_showcaseCardTitle__5egLq",
@@ -22,12 +21,13 @@ module.exports = {
 	"showcaseCardImage": "Home_showcaseCardImage__SwKe3",
 	"contactFooter": "Home_contactFooter__MNq9p",
 	"contactFooterFlash": "Home_contactFooterFlash__7fTJf",
-	"blink-1": "Home_blink-1__kqLyh",
 	"contactFooterTitle": "Home_contactFooterTitle__Jfs__",
 	"contactFooterEmail": "Home_contactFooterEmail__u_QTa",
+	"blink-1": "Home_blink-1__kqLyh",
 	"contactFooterSocialIcon": "Home_contactFooterSocialIcon__cONzB",
 	"topBar": "Home_topBar__e8y18",
-	"topBarButton": "Home_topBarButton__e6jh6"
+	"topBarButton": "Home_topBarButton__e6jh6",
+	"animationLight": "Home_animationLight__QLp6P"
 };
 
 
