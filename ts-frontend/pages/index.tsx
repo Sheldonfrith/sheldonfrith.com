@@ -35,7 +35,7 @@ const Home: NextPage = () => {
             />
             <ShowcaseCard
               title="GPU-Powered Collision Detection"
-              subtitle="Cutting Edge Performance"
+              subtitle="Algorithm Performance Optimization"
               image="/images/CollisionsGif5t4.gif"
               link="https://github.com/Sheldonfrith/gpu_collision_detection_bevy/blob/main/README.md"
             />
