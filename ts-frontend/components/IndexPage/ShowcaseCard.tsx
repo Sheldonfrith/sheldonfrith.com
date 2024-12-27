@@ -12,12 +12,14 @@ interface ShowcaseCardProps {
   image: string;
   link?: string;
   subtitle: string;
+  status?: string;
 }
 const ShowcaseCard: React.FunctionComponent<ShowcaseCardProps> = ({
   title,
   image,
   link,
   subtitle,
+  status,
 }) => {
   const animationDuration = 700;
   const [className, setClassName] = useState<string>(styles.showcaseCard);
@@ -47,6 +49,8 @@ const ShowcaseCard: React.FunctionComponent<ShowcaseCardProps> = ({
       }}
     >
       <h2 className={styles.showcaseCardTitle}>{title}</h2>
+      <div className={styles.showcaseCardStatusText}>{status}</div>
+      <div className={styles.showcaseCardStatusText_Shadow}>{status}</div>
       <div className={styles.showcaseCardImageAndLabel}>
         <h4 className={styles.showcaseCardSubtitle}>{subtitle}</h4>
         <img className={styles.showcaseCardImage} src={image} alt={title} />

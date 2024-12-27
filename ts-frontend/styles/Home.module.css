@@ -55,6 +55,8 @@
 /* Showcase Card */
 .showcaseCard,
 .showcaseCardClicked {
+  transform-style: preserve-3d;
+  position: relative;
   cursor: pointer;
   margin: 1rem;
   padding: 1.5rem;
@@ -65,7 +67,7 @@
   /* Replace fixed height/width with responsive units */
   width: min(45vw, 500px); /* Limit maximum width */
   height: min(65vh, 550px); /* Limit maximum height */
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -166,7 +168,32 @@
   margin: 0;
   margin-bottom: 1rem;
 }
+.showcaseCardStatusText,
+.showcaseCardStatusText_Shadow {
+  background: var(--text2);
+  color: var(--bg);
+  padding: 0.2rem 0.5rem;
+  position: absolute;
+  transform: rotate(-10deg);
+  left: -2rem;
+  border-radius: 0.3rem;
+  top: -1rem;
+  width: fit-content;
+}
+@media screen and (max-width: 768px) {
+  .showcaseCardStatusText,
+  .showcaseCardStatusText_Shadow {
+    font-size: 0.8rem;
+  }
+}
 
+.showcaseCardStatusText_Shadow {
+  box-shadow: rgb(10, 10, 10, 0.5) -0.5rem 0.5rem 1rem 0.1rem;
+  transform: rotate(-10deg) translateZ(-10px);
+  padding: 0;
+  top: -0.6rem;
+  left: -1.7rem;
+}
 /* Make the image height proportional to card height */
 .showcaseCardImage {
   object-fit: cover;

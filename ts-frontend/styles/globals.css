@@ -24,12 +24,12 @@
   --c8: #94d0de;
   --c9: #83c8d7;
 
-  --dark-bg-1: rgb(0, 0, 0, 0.3);
-  --dark-bg-2: rgb(0, 0, 0, 0.5);
-  --dark-bg-3: rgb(0, 0, 0, 0.7);
-  --light-bg-1: rgb(255, 255, 255, 0.3);
-  --light-bg-2: rgb(255, 255, 255, 0.5);
-  --light-bg-3: rgb(255, 255, 255, 0.7);
+  --dark-bg-1: rgb(38, 38, 38);
+  --dark-bg-2: rgb(50, 50, 50);
+  --dark-bg-3: rgb(62, 62, 62);
+  --light-bg-1: rgb(255, 246, 230);
+  --light-bg-2: rgb(161, 161, 161);
+  --light-bg-3: rgb(211, 211, 211);
   --dark-gradient: linear-gradient(
     63deg,
     rgba(44, 41, 58, 1) 7%,

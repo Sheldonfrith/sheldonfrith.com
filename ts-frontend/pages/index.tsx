@@ -32,42 +32,49 @@ const Home: NextPage = () => {
               subtitle="Machine Learning and Data Science"
               image="/images/VancouverMapGS4MeterSeasonal5t4.gif"
               link="https://app.umny.ca"
+              status="LIVE • COMMERCIAL"
             />
             <ShowcaseCard
               title="GPU-Powered Collision Detection"
               subtitle="Algorithm Performance Optimization"
               image="/images/CollisionsGif5t4.gif"
               link="https://github.com/Sheldonfrith/gpu_collision_detection_bevy/blob/main/README.md"
+              status="DEMO • SHOWCASE"
             />
             <ShowcaseCard
               title="AI Powered Coloquial Translator"
               subtitle="Prompt Eng. and API Integration"
               image="/images/AIPoweredLocalTranslator5t4.png"
               link="https://sheldonfrith.com/translator"
+              status="BETA • OPEN"
             />
             <ShowcaseCard
               title="GeoPile Predictive Software"
               subtitle="Complex UI Development"
               image="/images/UmnySitePreview5t4.jpg"
               link="https://youtu.be/74QCfmN-KNU"
+              status="LIVE • COMMERCIAL"
             />
             <ShowcaseCard
               title="WAsm Speed Tester"
               subtitle="Backend Performance"
               image="/images/WasmTesterPreview5t4.jpg"
               link="/wasm-speed-tester"
+              status="DEMO • SHOWCASE"
             />
             <ShowcaseCard
               title="Geo Control & Monitoring System"
               subtitle="SCADA and IoT"
               image="/images/GeoControlAndMonitoring5t4.jpg"
               link="https://umny.ca/smart-control/"
+              status="LIVE • COMMERCIAL"
             />
             <ShowcaseCard
               title="React-Elvis"
               subtitle="Frontend Error and Validation UX Library"
               image="/images/React-Elvis-Example5t4.jpg"
               link="https://sheldonfrith.com/elvis"
+              status="NPM PACKAGE • BETA"
             />
           </div>
           <ContactFooter triggerFlash={false} />

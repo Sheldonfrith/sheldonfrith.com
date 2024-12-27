@@ -18,6 +18,8 @@ module.exports = {
 	"showcaseCardImageAndLabel": "Home_showcaseCardImageAndLabel__k7___",
 	"showcaseCardTitle": "Home_showcaseCardTitle__5egLq",
 	"showcaseCardSubtitle": "Home_showcaseCardSubtitle__wUcJp",
+	"showcaseCardStatusText": "Home_showcaseCardStatusText__zkAFO",
+	"showcaseCardStatusText_Shadow": "Home_showcaseCardStatusText_Shadow__O3hGZ",
 	"showcaseCardImage": "Home_showcaseCardImage__SwKe3",
 	"contactFooter": "Home_contactFooter__MNq9p",
 	"contactFooterFlash": "Home_contactFooterFlash__7fTJf",
